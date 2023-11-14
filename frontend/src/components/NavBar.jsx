@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./HomePage";
-import SignIn from "./SigninPage";
+import SignIn from "./SignInPage";
 
 function Root() {
   const navStyle = {
