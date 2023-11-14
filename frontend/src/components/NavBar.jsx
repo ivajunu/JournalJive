@@ -1,70 +1,46 @@
-import {
-  createHashRouter,
-  Link,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
+// frontend/src/components/Navbar.jsx
+// import { Link } from "react-router-dom";
 
-import Home from "./HomePage";
-import SignIn from "./SigninPage";
+function NavBar() {
+  // const navStyle = {
+  //   listStyleType: "none",
+  //   display: "flex",
+  //   justifyContent: "space-around",
+  // };
 
-function Root() {
-  const navStyle = {
-    listStyleType: "none",
-    display: "flex",
-    justifyContent: "space-around",
-  };
+  // const positionNav = {
+  //   display: "flex",
+  //   alignItems: "center",
+  //   position: "fixed",
+  //   top: 0,
+  //   width: "100%",
+  //   zIndex: 1,
+  // };
 
-  const positionNav = {
-    display: "flex",
-    alignItems: "center",
-    position: "fixed",
-    top: 0,
-    width: "100%",
-  };
+  // const h3Styling = {
+  //   fontSize: "15px",
+  //   marginRight: "20px",
+  // };
 
-  const h3Styling = {
-    fontSize: "15px",
-    marginRight: "20px",
-  };
-
-  const liStyle = {
-    marginRight: "20px",
-  };
+  // const liStyle = {
+  //   marginRight: "20px",
+  // };
 
   return (
     <>
-      <nav style={positionNav}>
-        <h3 style={h3Styling}>JournalJive</h3>
-        <ul style={navStyle}>
-          <li style={liStyle}>
+      {/* <nav>
+        <h3>JournalJive</h3>
+        <ul>
+          <li>
             <Link to="/">Home</Link>
           </li>
-          <li style={liStyle}>
-            <Link to="/SignInPage">Sign in</Link>
+          <li>
+            <Link to="/sign-in">Sign in</Link>
           </li>
         </ul>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
+      </nav> */}
     </>
   );
-}
-
-function NavBar() {
-  const router = createHashRouter([
-    {
-      children: [
-        { element: <Home />, path: "/" },
-        { element: <SignIn />, path: "/SigninPage" },
-        { element: <SignUpPage />, path: "/sign-up" },
-      ],
-      element: <Root />,
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
 }
 
 export default NavBar;

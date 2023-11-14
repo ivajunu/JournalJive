@@ -1,7 +1,8 @@
 import image from "../assets/Home_img.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function HomePage() {
+  const navigate = useNavigate();
   const imgStyle = {
     width: "310px",
     height: "200px",
@@ -13,14 +14,17 @@ function HomePage() {
     flexDirection: "column",
     gap: "10px",
   };
+  const handleSignIn = () => {
+    navigate("/sign-in");
+  };
 
   return (
     <div>
       <img src={image} alt="home header pic" style={imgStyle}></img>
       <h1>Home</h1>
       <div style={buttonStyle}>
-        <button>Sign in</button>
-        <Link to="/SignUpPage">Sign up</Link>
+        <button onClick={handleSignIn}>Sign in</button>
+        <Link to="/sign-up">Sign up</Link>
       </div>
     </div>
   );
