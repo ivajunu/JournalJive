@@ -23,7 +23,7 @@ function HomePage() {
   return (
     <div>
       <img src={image} alt="home header pic" style={imgStyle}></img>
-      <h1>Home</h1>
+      <h1>Welcome!</h1>
       <Link to="/sign-up">Sign up</Link>
       <Link to="/sign-in">Sign in</Link>
       {/* <div style={buttonStyle}>

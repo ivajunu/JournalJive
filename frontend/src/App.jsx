@@ -42,7 +42,7 @@ function Root() {
   return (
     <>
       <nav style={positionNav}>
-        <h3 style={h3Styling}>JournalJive</h3>
+        {/* <h3 style={h3Styling}>JournalJive</h3> */}
         <ul style={navStyle}>
           <li style={liStyle}>
             <Link to="/">Home</Link>
