@@ -7,6 +7,7 @@ import {
 
 import Home from "./HomePage";
 import SignIn from "./SigninPage";
+import SignUpPage from "./SignupPage";
 
 function Root() {
   const navStyle = {
@@ -58,6 +59,7 @@ function NavBar() {
       children: [
         { element: <Home />, path: "/" },
         { element: <SignIn />, path: "/SigninPage" },
+        { element: <SignUpPage />, path: "/sign-up" },
       ],
       element: <Root />,
     },
