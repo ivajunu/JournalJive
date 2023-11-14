@@ -1,4 +1,4 @@
-import image from "../assets/Home_img.jpg";
+import image from "../assets/headerPic.png";
 import { Link, useNavigate } from "react-router-dom";
 
 function HomePage() {
@@ -9,23 +9,26 @@ function HomePage() {
     borderRadius: "5%",
   };
 
-  const buttonStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+  // const buttonStyle = {
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   gap: "10px",
+  // };
+  const handleSignUp = () => {
+    navigate("/sign-un");
   };
   const handleSignIn = () => {
     navigate("/sign-in");
   };
-
   return (
     <div>
       <img src={image} alt="home header pic" style={imgStyle}></img>
       <h1>Home</h1>
-      <div style={buttonStyle}>
+      <Link to="/sign-up">Sign up</Link>
+      <Link to="/sign-in">Sign in</Link>
+      {/* <div style={buttonStyle}>
         <button onClick={handleSignIn}>Sign in</button>
-        <Link to="/sign-up">Sign up</Link>
-      </div>
+      </div> */}
     </div>
   );
 }

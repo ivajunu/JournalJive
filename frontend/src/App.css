@@ -26,6 +26,7 @@ a {
   text-align: center;
 }
 
+li,
 a {
   text-decoration: none;
   color: inherit;
@@ -34,10 +35,11 @@ a {
   padding: 0.5rem;
 }
 
+/* li,
 a:hover {
   background-color: #202325;
   color: rgb(221, 221, 217);
-}
+} */
 
 img {
   margin: 1rem;
