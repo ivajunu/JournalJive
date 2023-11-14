@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 import Home from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 import LandingPageReg from "./components/LandingPageReg";
-import SignIn from "./components/SigninPage";
+import SignInPage from "./components/SignInPage";
 import SignUp from "./components/SignupPage";
 import Blog from "./components/BlogPage";
 
@@ -16,7 +16,7 @@ function App() {
         <LandingPage></LandingPage>
         <LandingPageReg></LandingPageReg>
         <SignUp></SignUp>
-        <SignIn></SignIn>
+        <SignInPage />
       </div>
     </>
   );
