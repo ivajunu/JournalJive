@@ -7,7 +7,6 @@ import {
 
 import Home from "./HomePage";
 import SignIn from "./SigninPage";
-import SignUpPage from "./SignupPage";
 
 function Root() {
   const navStyle = {

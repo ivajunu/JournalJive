@@ -1,4 +1,5 @@
 import image from "../assets/Home_img.jpg";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const imgStyle = {
@@ -19,7 +20,7 @@ function HomePage() {
       <h1>Home</h1>
       <div style={buttonStyle}>
         <button>Sign in</button>
-        <a href="/signup">Sign up</a>
+        <Link to="/SignUpPage">Sign up</Link>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import LandingPageReg from "./components/LandingPageReg";
 // import SignUp from "./components/SignupPage";
 import Blog from "./components/BlogPage";
 import Navbar from "./components/NavBar";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
