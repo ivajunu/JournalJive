@@ -1,15 +1,22 @@
 import React from "react";
 import image from "../assets/headerPic.png";
 import Input from "../components/Forms/Input";
-// import { Button } from "@mui/material/Button";
+import CustomButton from "./Forms/Button";
 
 const SignInPage = () => {
   const imgStyle = {
     width: "310px",
     height: "200px",
     borderRadius: "5%",
-    marginbottom: "1rem",
+    marginbottom: "2rem",
   };
+  const containerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  };
+  const buttonStyle = { margin: "1rem" };
+
   // function SignInPage() {
   return (
     <>
@@ -20,12 +27,16 @@ const SignInPage = () => {
       <div>
         {/* <h2>Sign in</h2> */}
         <p>Please put your credentials in the fields</p>
-        <div>
-          <Input Label={"Username"} />
-          <Input Label={"Password"} />
-          {/* <Button color="tertiary" variant="outlined">
-            Sign In
-          </Button> */}
+      </div>
+      <div style={containerStyle}>
+        <Input Label={"Username"} />
+        <Input Label={"Password"} />
+        <div style={buttonStyle}>
+          <CustomButton
+            label="Sign In"
+            variant="outlined"
+            // onClick={handleClick}
+          />
         </div>
       </div>
     </>

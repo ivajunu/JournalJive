@@ -19,7 +19,8 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    justifyContent: "space-around",
+    // justifyContent: "space-around",
+    justifyContent: "space-evenly",
   };
 
   const positionNav = {
@@ -31,10 +32,10 @@ function Root() {
     zIndex: 1,
   };
 
-  const h3Styling = {
-    fontSize: "15px",
-    marginRight: "20px",
-  };
+  // const h3Styling = {
+  //   fontSize: "15px",
+  //   marginRight: "20px",
+  // };
 
   const liStyle = {
     marginRight: "20px",
