@@ -5,27 +5,31 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledInput = styled(TextField)`
+  box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
   label.Mui-focused {
-    color: red;
+    color: #7f6e55;
   }
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: red;
+      border-color: #baaa91;
     }
     & .MuiOutlinedInput-notchedOutline {
-      border-color: pink;
+      border-color: #baaa91;
     }
   }
 `;
 
 function Input(props) {
+  const { placeholder, value, onChange, type } = props;
   return (
-    <div style={{ margin: "5px" }}>
+    <div style={{ margin: "7px" }}>
       <StyledInput
         size="small"
-        id="outlined-basic"
-        label={props.placeholder}
+        label={placeholder}
         variant="outlined"
+        onChange={onChange}
+        value={value}
+        type={type}
       />
     </div>
   );
@@ -33,6 +37,9 @@ function Input(props) {
 
 Input.propTypes = {
   placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.node,
+  type: PropTypes.string,
 };
 
 export default Input;
