@@ -1,11 +1,10 @@
-import Input from "../components/Forms/Input";
+import CreateAccount from "./CreateAccount";
 
 export default function SignupPage() {
   return (
     <div>
-      <Input Label={"Användarnamn"} />
-      <Input Label={"förnamn"} />
-      <Input Label={"efternamn"} />
+      <h1>Create Account</h1>
+      <CreateAccount />
     </div>
   );
 }
