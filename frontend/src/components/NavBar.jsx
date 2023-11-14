@@ -17,20 +17,30 @@ function Root() {
 
   const positionNav = {
     display: "flex",
-    // justifyContent: "center",
+    alignItems: "center",
     position: "fixed",
     top: 0,
     width: "100%",
   };
 
+  const h3Styling = {
+    fontSize: "15px",
+    marginRight: "20px",
+  };
+
+  const liStyle = {
+    marginRight: "20px",
+  };
+
   return (
     <>
       <nav style={positionNav}>
+        <h3 style={h3Styling}>JournalJive</h3>
         <ul style={navStyle}>
-          <li>
+          <li style={liStyle}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li style={liStyle}>
             <Link to="/SignInPage">Sign in</Link>
           </li>
         </ul>
