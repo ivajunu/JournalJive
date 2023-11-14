@@ -49,7 +49,7 @@ const SignInPage = () => {
     <>
       <div>
         <h2>Sign in</h2>
-        <p>PLease put your credentials in the fields</p>
+        <p>Please put your credentials in the fields</p>
         <form onSubmit={formik.handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>
