@@ -7,7 +7,6 @@ import SignUp from "./components/SignupPage";
 import LandingPage from "./components/LandingPage";
 import LandingPageReg from "./components/LandingPageReg";
 import Blog from "./components/BlogPage";
-// import Navbar from "./components/NavBar";
 
 import {
   createHashRouter,
