@@ -1,4 +1,3 @@
-import image from "../assets/headerPic.png";
 import {
   Link,
   // useNavigate
@@ -6,12 +5,6 @@ import {
 
 function HomePage() {
   // const navigate = useNavigate();
-  const imgStyle = {
-    width: "310px",
-    height: "200px",
-    borderRadius: "5%",
-    marginBottom: "2rem",
-  };
 
   const linkStyle = {
     display: "flex",
@@ -20,7 +13,6 @@ function HomePage() {
 
   return (
     <div>
-      <img src={image} alt="home header pic" style={imgStyle}></img>
       <h1>Welcome!</h1>
       <div style={linkStyle}>
         <Link to="/sign-up">Sign up</Link>

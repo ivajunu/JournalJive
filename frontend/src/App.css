@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 0.5rem; */
 }
 
 * {
@@ -26,6 +26,10 @@ a {
   text-align: center;
 }
 
+ul {
+  padding: 0;
+}
+
 li,
 a {
   text-decoration: none;
@@ -42,5 +46,10 @@ a:hover {
 } */
 
 img {
-  margin: 1rem;
+  width: 310px;
+  height: 200px;
+  border-radius: 5%;
+  margin: 3rem auto;
+  display: flex;
+  align-self: center;
 }

@@ -1,6 +1,7 @@
 // frontend/src/App.jsx
 
 import "./App.css";
+import image from "./assets/headerPic.png";
 import Home from "./components/HomePage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignupPage";
@@ -19,7 +20,6 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    // justifyContent: "space-around",
     justifyContent: "space-evenly",
   };
 
@@ -29,13 +29,9 @@ function Root() {
     position: "fixed",
     top: 0,
     width: "100%",
-    zIndex: 1,
+    marginBottom: "1rem,",
+    // zIndex: 1,
   };
-
-  // const h3Styling = {
-  //   fontSize: "15px",
-  //   marginRight: "20px",
-  // };
 
   const liStyle = {
     marginRight: "20px",
@@ -43,7 +39,6 @@ function Root() {
   return (
     <>
       <nav style={positionNav}>
-        {/* <h3 style={h3Styling}>JournalJive</h3> */}
         <ul style={navStyle}>
           <li style={liStyle}>
             <Link to="/">Home</Link>
@@ -56,6 +51,9 @@ function Root() {
           </li>
         </ul>
       </nav>
+      <div>
+        <img src={image} alt="home header pic"></img>
+      </div>
       <main>
         <Outlet />
       </main>
