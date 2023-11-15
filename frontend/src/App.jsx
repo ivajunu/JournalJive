@@ -3,7 +3,7 @@
 import "./App.css";
 import image from "./assets/headerPic.png";
 import Home from "./components/HomePage";
-import SignIn from "./components/SignInPage";
+import SignIn from "./components/SigninPage";
 import SignUp from "./components/SignupPage";
 import LandingPage from "./components/LandingPage";
 import LandingPageReg from "./components/LandingPageReg";
