@@ -1,11 +1,21 @@
 const express = require("express");
 path = require("path");
-const cors = require("cors");
+// const cors = require("cors");
 
 const app = express();
 
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
+const dotenv = require("dotenv"),
+  { Client } = require("pg");
+
+dotenv.config();
+
+const client = new Client({
+  connectionString: process.env.PGURI,
+});
+
+client.connect();
 // app.use(
 //   cors({
 //     origin: "*",
@@ -13,14 +23,12 @@ const app = express();
 //   })
 // );
 
-const client = new Client({
-  connectionString: process.env.PGURI,
-});
+// const client = new Client({
+//   connectionString: process.env.PGURI,
+// });
 
-client.connect();
-
-app.get("/api", async (request, response) => {
-  const { rows } = await client.query("SELECT * FROM blogpost_person");
+app.get("/api", async (_request, response) => {
+  const { rows } = await client.query("SELECT * FROM blogs");
   response.send(rows);
 });
 
