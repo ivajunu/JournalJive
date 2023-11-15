@@ -1,6 +1,7 @@
 // frontend/src/App.jsx
 
 import "./App.css";
+import image from "./assets/headerPic.png";
 import Home from "./components/HomePage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignupPage";
@@ -29,9 +30,16 @@ function Root() {
     position: "fixed",
     top: 0,
     width: "100%",
-    zIndex: 1,
+    marginBottom: "1rem,",
+    // zIndex: 1,
   };
 
+  const imgStyle = {
+    width: "310px",
+    height: "200px",
+    borderRadius: "5%",
+    margin: "3rem 1rem",
+  };
   // const h3Styling = {
   //   fontSize: "15px",
   //   marginRight: "20px",
@@ -56,6 +64,9 @@ function Root() {
           </li>
         </ul>
       </nav>
+      <div>
+        <img src={image} alt="home header pic" style={imgStyle}></img>
+      </div>
       <main>
         <Outlet />
       </main>
