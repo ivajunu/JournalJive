@@ -1,8 +1,13 @@
 // Källa styling: https://stackoverflow.com/questions/52911169/how-to-change-the-border-color-of-material-ui-textfield
 
 import TextField from "@mui/material/TextField";
+import * as whatever from "@mui/material";
+// import { Input } from "@mui/material/TextField";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+
+console.log(whatever.Input.propTypes);
+// console.log(Input.propTypes);
 
 const StyledInput = styled(TextField)`
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
@@ -35,11 +40,14 @@ function Input(props) {
   );
 }
 
+// console.log(InputProps);
+
 Input.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.node,
   type: PropTypes.string,
+  ...whatever.Input.propTypes,
 };
 
 export default Input;

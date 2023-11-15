@@ -1,6 +1,7 @@
 import FormButton from "./Forms/FormButton";
 import Input from "./Forms/Input";
 import CheckBox from "./Forms/CheckBox";
+// import Date from "./Forms/DatePicker";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
@@ -85,6 +86,7 @@ function CreateAccount() {
             setPersonalNumber(e.target.value);
           }}
         />
+        {/* <Date /> */}
         <Input
           placeholder={"Phone number"}
           value={phoneNumber}
