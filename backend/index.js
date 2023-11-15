@@ -27,7 +27,7 @@ client.connect();
 //   connectionString: process.env.PGURI,
 // });
 
-app.get("/api", async (_request, response) => {
+app.get("/api", async (request, response) => {
   const { rows } = await client.query("SELECT * FROM blogs");
   response.send(rows);
 });
