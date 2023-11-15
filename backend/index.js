@@ -4,14 +4,14 @@ const cors = require("cors");
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT"],
+//   })
+// );
 
 const client = new Client({
   connectionString: process.env.PGURI,
@@ -25,14 +25,14 @@ app.get("/api", async (request, response) => {
 });
 
 //Nedan är kod för att kunna logga in -Bella
-app.post("/api/signin", async (req, res) => {
-  const user = await User.findOne({ username: req.body.username });
-  if (user && (await bcrypt.compare(req.body.password, user.password))) {
-    res.status(200).send("Succesfully signed in");
-  } else {
-    res.status(401).send("Invalid credentials");
-  }
-});
+// app.post("/api/signin", async (req, res) => {
+//   const user = await User.findOne({ username: req.body.username });
+//   if (user && (await bcrypt.compare(req.body.password, user.password))) {
+//     res.status(200).send("Succesfully signed in");
+//   } else {
+//     res.status(401).send("Invalid credentials");
+//   }
+// });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
