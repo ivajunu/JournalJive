@@ -46,5 +46,10 @@ a:hover {
 } */
 
 img {
-  margin: 1rem;
+  width: 310px;
+  height: 200px;
+  border-radius: 5%;
+  margin: 3rem auto;
+  display: flex;
+  align-self: center;
 }

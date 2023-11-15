@@ -20,7 +20,6 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    // justifyContent: "space-around",
     justifyContent: "space-evenly",
   };
 
@@ -34,24 +33,12 @@ function Root() {
     // zIndex: 1,
   };
 
-  const imgStyle = {
-    width: "310px",
-    height: "200px",
-    borderRadius: "5%",
-    margin: "3rem 1rem",
-  };
-  // const h3Styling = {
-  //   fontSize: "15px",
-  //   marginRight: "20px",
-  // };
-
   const liStyle = {
     marginRight: "20px",
   };
   return (
     <>
       <nav style={positionNav}>
-        {/* <h3 style={h3Styling}>JournalJive</h3> */}
         <ul style={navStyle}>
           <li style={liStyle}>
             <Link to="/">Home</Link>
@@ -65,7 +52,7 @@ function Root() {
         </ul>
       </nav>
       <div>
-        <img src={image} alt="home header pic" style={imgStyle}></img>
+        <img src={image} alt="home header pic"></img>
       </div>
       <main>
         <Outlet />
