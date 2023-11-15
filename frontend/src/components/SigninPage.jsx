@@ -1,10 +1,13 @@
-import React from "react";
+// import React from "react";
 
 import Input from "../components/Forms/Input";
 // import CustomButton from "./Forms/Button";
 import FormButton from "./Forms/FormButton";
 
 const SignInPage = () => {
+  const textStyle = {
+    margin: "2rem",
+  };
   const containerStyle = {
     display: "flex",
     flexDirection: "column",
@@ -14,12 +17,12 @@ const SignInPage = () => {
 
   return (
     <>
-      <div>
+      <div style={textStyle}>
         <p>Please put your credentials in the fields</p>
       </div>
       <div style={containerStyle}>
         <Input placeholder={"Username"} />
-        <Input placeholder={"Password"} />
+        <Input type={"password"} placeholder={"Password"} />
         <div style={buttonStyle}>
           <FormButton
             label="Sign In"
