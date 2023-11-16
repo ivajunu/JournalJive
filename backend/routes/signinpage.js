@@ -1,12 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
+// const app = express();
 const client = require("../index");
-
-app.get("/users", async (_request, response) => {
-  const { rows } = await client.query("SELECT * FROM person_datas");
-  response.send(rows);
-});
 
 router.get("/signin", async (_req, res) => {
   try {

@@ -20,6 +20,12 @@ app.get("/api", async (_request, response) => {
   response.send(rows);
 });
 
+app.get("/users", async (_request, response) => {
+  const { rows } = await client.query("SELECT * FROM person_datas");
+  console.log("Hämta användare");
+  response.send(rows);
+});
+
 app.use(express.static(path.join(path.resolve(), "dist")));
 
 app.listen(port, () => {
