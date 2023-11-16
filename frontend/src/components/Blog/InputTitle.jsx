@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 const StyledInputTitle = styled(TextField)`
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
+  width: 30rem;
+
   label.Mui-focused {
     color: #7f6e55;
   }

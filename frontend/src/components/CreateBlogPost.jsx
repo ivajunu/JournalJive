@@ -1,6 +1,6 @@
 // import FormButton from "./Forms/FormButton";
-// import InputBlog from "./Blog/InputBlog";
-import Input from "./Forms/Input";
+import InputBlog from "./Blog/InputBlog";
+import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -18,7 +18,8 @@ const RegisterForm = styled.div`
 `;
 
 function CreateBlogPost() {
-  const [value, setValue] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [blogPost, setblogPost] = useState(null);
 
   //   const [blogPost, setBlogPost] = useState("");
   //   const [disabled, setDisabled] = useState(true);
@@ -38,20 +39,20 @@ function CreateBlogPost() {
   return (
     <RegisterForm>
       <form>
-        <Input
+        <InputTitle
           placeholder={"Title"}
-          value={value}
+          value={title}
           onchange={(e) => {
-            setValue(e.target.value);
+            setTitle(e.target.value);
           }}
         />
-        {/* <InputBlog
+        <InputBlog
           placeholder={"Write something"}
           value={blogPost}
           onChange={(e) => {
-            setBlogPost(e.target.value);
+            setblogPost(e.target.value);
           }}
-        /> */}
+        />
         {/* <div style={{ padding: "5px" }}>
           <FormButton label={"Register Account"} onClick={handleBlogValues} />
         </div> */}
