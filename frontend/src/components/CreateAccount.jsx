@@ -1,7 +1,7 @@
 import FormButton from "./Forms/FormButton";
 import Input from "./Forms/Input";
 import CheckBox from "./Forms/CheckBox";
-// import Date from "./Forms/DatePicker";
+import Date from "./Forms/DatePicker";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
@@ -22,7 +22,6 @@ function CreateAccount() {
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [personalNumber, setPersonalNumber] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,17 +41,37 @@ function CreateAccount() {
   function handleFormValues(e) {
     e.preventDefault();
     const formvalues = {
-      name: userName,
+      username: userName,
       firstname: firstName,
       lastname: lastName,
-      personalnumber: personalNumber,
       phonenumber: phoneNumber,
       email: email,
       password: password,
-      repeatpassword: repeatPassword,
     };
 
     console.log("Värden från formuläret: ", { formvalues });
+
+    fetch("http://localhost:3000/createaccount", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formvalues),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserName("");
+        setFirstName("");
+        setLastName("");
+        setPhoneNumber("");
+        setEmail("");
+        setPassword("");
+        setRepeatPassword("");
+      })
+      .catch((error) => {
+        console.error("Error creating user", error);
+      });
   }
 
   return (
@@ -79,14 +98,7 @@ function CreateAccount() {
             setLastName(e.target.value);
           }}
         />
-        <Input
-          placeholder={"Personal number"}
-          value={personalNumber}
-          onChange={(e) => {
-            setPersonalNumber(e.target.value);
-          }}
-        />
-        {/* <Date /> */}
+        <Date />
         <Input
           placeholder={"Phone number"}
           value={phoneNumber}

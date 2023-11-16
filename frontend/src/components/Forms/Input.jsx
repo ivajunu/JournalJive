@@ -41,7 +41,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.node,
   type: PropTypes.string,
-  rows: PropTypes.rows,
+  rows: PropTypes.number,
 };
 
 export default Input;
