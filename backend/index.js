@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const dotenv = require("dotenv");
 const { Client } = require("pg");
+const cors = require("cors");
 
 dotenv.config();
 const client = new Client({
@@ -12,8 +13,16 @@ const client = new Client({
 
 client.connect();
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const signinpage = require("./routes/signinpage");
 app.use(signinpage);
+
+const createaccount = require("./routes/createaccount");
+createaccount.client = client;
+app.use(createaccount);
 
 app.get("/api", async (_request, response) => {
   const { rows } = await client.query("SELECT * FROM blogs");
