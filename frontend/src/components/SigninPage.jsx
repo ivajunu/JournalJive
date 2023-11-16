@@ -1,7 +1,6 @@
 // import React from "react";
-
-import Input from "../components/Forms/Input";
 // import CustomButton from "./Forms/Button";
+import Input from "../components/Forms/Input";
 import FormButton from "./Forms/FormButton";
 
 const SignInPage = () => {
@@ -20,7 +19,7 @@ const SignInPage = () => {
       <div style={textStyle}>
         <p>Please put your credentials in the fields</p>
       </div>
-      <div style={containerStyle}>
+      {/* <div style={containerStyle}>
         <Input placeholder={"Username"} />
         <Input type={"password"} placeholder={"Password"} />
         <div style={buttonStyle}>
@@ -29,7 +28,25 @@ const SignInPage = () => {
             variant="outlined"
             // onClick={handleClick}
           />
-        </div>
+        </div> */}
+      {/* </div> */}
+      <div style={containerStyle}>
+        <form action="http://localhost:3000/login" method="post">
+          <label>
+            E-postadress
+            <input name="email" placeholder="E-postadress" value="" />
+          </label>
+          <label>
+            Lösenord
+            <input
+              name="password"
+              placeholder="Lösenord"
+              type="password"
+              value=""
+            />
+          </label>
+          <input type="submit" value="Skicka" />
+        </form>
       </div>
     </>
   );
