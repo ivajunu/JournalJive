@@ -31,16 +31,16 @@ const SignInPage = () => {
         </div> */}
       {/* </div> */}
       <div style={containerStyle}>
-        <form action="http://localhost:3000/login" method="post">
+        <form action="http://localhost:3000/signinpage" method="post">
           <label>
             E-postadress
-            <input name="email" placeholder="E-postadress" value="" />
+            <input name="username" placeholder="username" value="" />
           </label>
           <label>
             Lösenord
             <input
               name="password"
-              placeholder="Lösenord"
+              placeholder="password"
               type="password"
               value=""
             />
