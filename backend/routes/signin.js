@@ -14,7 +14,12 @@ router.post("/signin", async (req, res) => {
     if (result.rows.length > 0) {
       res.status(200).json({ message: "Successfully signed in" });
     } else {
-      res.status(401).json({ message: "Invalid credentials" });
+      res
+        .status(401)
+        .json({
+          message:
+            "Something isn't adding up... Please doublecheck the credentials you've put in and try again :)",
+        });
     }
   } catch (error) {
     console.error("Error during sign-in", error);
