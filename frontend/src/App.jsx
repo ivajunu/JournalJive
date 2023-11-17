@@ -17,6 +17,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+import SuccessCreate from "./components/SuccessCreate";
 
 function Root() {
   const navStyle = {
@@ -75,6 +76,7 @@ function App() {
         { element: <LandingPageReg />, path: "/landing-reg" },
         { element: <EditProfile />, path: "/EditProfile" },
         { element: <DeleteProfile />, path: "/DeleteProfile" },
+        { element: <SuccessCreate />, path: "/success" },
       ],
       element: <Root />,
     },

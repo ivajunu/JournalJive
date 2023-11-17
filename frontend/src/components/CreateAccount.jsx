@@ -4,6 +4,7 @@ import CheckBox from "./Forms/CheckBox";
 import Date from "./Forms/DatePicker";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // TOTO: set validation for document before posting
 
@@ -19,16 +20,17 @@ const RegisterForm = styled.div`
 `;
 
 function CreateAccount() {
-  const [userName, setUserName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [repeatPassword, setRepeatPassword] = useState(null);
   const [accept, setAccept] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  // const [formValues, setFormvalues] = useState("");
+  // const [formValues, setFormvalues] = useState(null);
 
   useEffect(() => {
     if (accept === true) {
@@ -40,6 +42,7 @@ function CreateAccount() {
 
   function handleFormValues(e) {
     e.preventDefault();
+
     const formvalues = {
       username: userName,
       firstname: firstName,
@@ -68,6 +71,8 @@ function CreateAccount() {
         setEmail("");
         setPassword("");
         setRepeatPassword("");
+
+        navigate("/Success");
       })
       .catch((error) => {
         console.error("Error creating user", error);
