@@ -7,6 +7,7 @@ const { Client } = require("pg");
 const cors = require("cors");
 
 dotenv.config();
+
 const client = new Client({
   connectionString: process.env.PGURI,
 });
