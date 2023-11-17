@@ -22,6 +22,10 @@ const signin = require("./routes/signin");
 signin.client = client;
 app.use(signin);
 
+const blog = require("./routes/blog");
+blog.client = client;
+app.use(blog);
+
 const createaccount = require("./routes/createaccount");
 createaccount.client = client;
 app.use(createaccount);
