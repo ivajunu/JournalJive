@@ -1,4 +1,4 @@
-// import FormButton from "./Forms/FormButton";
+import FormButton from "./Forms/FormButton";
 import InputBlog from "./Blog/InputBlog";
 import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
@@ -26,15 +26,15 @@ function CreateBlogPost() {
 
   // const [formValues, setFormvalues] = useState("");
 
-  //   function handleBlogValues(e) {
-  //     e.preventDefault();
-  //     const blogvalues = {
-  //       title: title,
-  //       blogPost: blogPost,
-  //     };
+  function handleBlogValues(e) {
+    e.preventDefault();
+    const blogvalues = {
+      title: title,
+      blogPost: blogPost,
+    };
 
-  //     console.log("Värden från bloggen: ", { blogvalues });
-  //   }
+    console.log("Värden från bloggen: ", { blogvalues });
+  }
 
   return (
     <RegisterForm>
@@ -53,9 +53,9 @@ function CreateBlogPost() {
             setblogPost(e.target.value);
           }}
         />
-        {/* <div style={{ padding: "5px" }}>
-          <FormButton label={"Register Account"} onClick={handleBlogValues} />
-        </div> */}
+        <div style={{ padding: "5px" }}>
+          <FormButton label={"Post"} onClick={handleBlogValues} />
+        </div>
       </form>
     </RegisterForm>
   );
