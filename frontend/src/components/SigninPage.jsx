@@ -2,10 +2,13 @@ import { useState } from "react";
 // import CustomButton from "./Forms/Button";
 import Input from "../components/Forms/Input";
 import FormButton from "./Forms/FormButton";
+import LandingPage from "./LandingPage";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const textStyle = {
     margin: "2rem",
@@ -45,6 +48,7 @@ const SignInPage = () => {
 
       if (response.status === 200) {
         alert(data.message);
+        navigate("/LandingPage");
       } else {
         alert(data.message);
       }
