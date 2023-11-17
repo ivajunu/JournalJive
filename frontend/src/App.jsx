@@ -8,6 +8,8 @@ import SignUp from "./components/SignupPage";
 import LandingPage from "./components/LandingPage";
 import LandingPageReg from "./components/LandingPageReg";
 import Blog from "./components/BlogPage";
+import EditProfile from "./components/EditProfile";
+import DeleteProfile from "./components/DeleteAccount";
 
 import {
   createHashRouter,
@@ -69,8 +71,10 @@ function App() {
         { element: <SignIn />, path: "/sign-in" },
         { element: <SignUp />, path: "/sign-up" },
         { element: <Blog />, path: "/blog" },
-        { element: <LandingPage />, path: "/landing" },
+        { element: <LandingPage />, path: "/LandingPage" },
         { element: <LandingPageReg />, path: "/landing-reg" },
+        { element: <EditProfile />, path: "/EditProfile" },
+        { element: <DeleteProfile />, path: "/DeleteProfile" },
       ],
       element: <Root />,
     },
