@@ -23,7 +23,7 @@ app.use(signin);
 
 const blog = require("./routes/blog");
 blog.client = client;
-app.use("/api", blog);
+app.use(blog);
 
 const createaccount = require("./routes/createaccount");
 createaccount.client = client;

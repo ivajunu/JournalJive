@@ -48,15 +48,13 @@ function CreateBlogPost() {
     console.log("Click!!!");
 
     const blogvalues = {
-      data: {
-        title: title,
-        blogPost: blogPost,
-      },
+      title: title,
+      blogPost: blogPost,
     };
 
     console.log("Värden från bloggen: ", { blogvalues });
 
-    fetch("http://localhost:3000/blogs", {
+    await fetch("http://localhost:3000/blog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +73,7 @@ function CreateBlogPost() {
   return (
     <>
       <RegisterForm>
-        <form onSubmit={handleBlogValues}>
+        <form>
           <InputTitle
             placeholder={"Title"}
             value={title}
