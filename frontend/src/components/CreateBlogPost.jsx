@@ -2,7 +2,7 @@ import FormButton from "./Forms/FormButton";
 import InputBlog from "./Blog/InputBlog";
 import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // TODO: set validation for document before posting
 
@@ -18,46 +18,97 @@ const RegisterForm = styled.div`
 `;
 
 function CreateBlogPost() {
-  const [title, setTitle] = useState(null);
-  const [blogPost, setblogPost] = useState(null);
+  const [title, setTitle] = useState("");
+  const [blogPost, setblogPost] = useState("");
+  const [blogs, setBlogs] = useState([]);
 
-  //   const [blogPost, setBlogPost] = useState("");
-  //   const [disabled, setDisabled] = useState(true);
+  useEffect(() => {
+    // Hämtar data från databasen
+    async function fetchData() {
+      try {
+        const response = await fetch("/api");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
 
-  // const [formValues, setFormvalues] = useState("");
+        console.log("Fetched data: ", data);
 
-  function handleBlogValues(e) {
+        setBlogs(data);
+      } catch (error) {
+        console.error("Failed to fetch data: ", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  async function handleBlogValues(e) {
     e.preventDefault();
+    console.log("Click!!!");
+
     const blogvalues = {
-      title: title,
-      blogPost: blogPost,
+      data: {
+        title: title,
+        blogPost: blogPost,
+      },
     };
 
     console.log("Värden från bloggen: ", { blogvalues });
+
+    fetch("http://localhost:3000/blogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(blogvalues),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data", data);
+      })
+      .catch((error) => {
+        console.error("Error creating user", error);
+      });
   }
 
   return (
-    <RegisterForm>
-      <form>
-        <InputTitle
-          placeholder={"Title"}
-          value={title}
-          onchange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <InputBlog
-          placeholder={"Write something"}
-          value={blogPost}
-          onChange={(e) => {
-            setblogPost(e.target.value);
-          }}
-        />
-        <div style={{ padding: "5px" }}>
-          <FormButton label={"Post"} onClick={handleBlogValues} />
-        </div>
-      </form>
-    </RegisterForm>
+    <>
+      <RegisterForm>
+        <form onSubmit={handleBlogValues}>
+          <InputTitle
+            placeholder={"Title"}
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+          <InputBlog
+            placeholder={"Write something"}
+            value={blogPost}
+            onChange={(e) => {
+              setblogPost(e.target.value);
+            }}
+          />
+          <div style={{ padding: "5px" }}>
+            <FormButton
+              type="submit"
+              label={"Post"}
+              onClick={handleBlogValues}
+            />
+          </div>
+        </form>
+      </RegisterForm>
+
+      <div>
+        {blogs.map((blog, index) => (
+          <div key={index}>
+            <h2>{blog.blog_title}</h2>
+            <p>{blog.blog_text}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
