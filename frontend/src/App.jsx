@@ -17,6 +17,7 @@ const DeleteProfile = lazyWithPreload(() =>
   import("./components/DeleteAccount")
 );
 const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
+const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));
 
 Home.preload();
 Signin.preload();
@@ -27,6 +28,7 @@ Signup.preload();
 LandingPage.preload();
 LandingPageReg.preload();
 GDPR.preload();
+ViewBlog.preload();
 
 import {
   createHashRouter,
@@ -65,7 +67,7 @@ function Root() {
             <Link to="/sign-in">Sign in</Link>
           </li>
           <li style={liStyle}>
-            <Link to="/blog">Blog</Link>
+            <Link to="/view-blog">Blog</Link>
           </li>
         </ul>
       </nav>
@@ -160,6 +162,14 @@ function App() {
             </Suspense>
           ),
           path: "/gdpr-info",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <ViewBlog />
+            </Suspense>
+          ),
+          path: "/view-blog",
         },
       ],
       element: <Root />,
