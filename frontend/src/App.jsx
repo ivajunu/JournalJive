@@ -2,7 +2,7 @@ import "./App.css";
 import image from "./assets/headerPic.png";
 import { Suspense } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Home = lazyWithPreload(() => import("./components/HomePage"));
 const Signin = lazyWithPreload(() => import("./components/SigninPage"));
@@ -50,10 +50,10 @@ function Root() {
   const positionNav = {
     display: "flex",
     alignItems: "center",
-    position: "fixed",
-    top: 0,
+    // position: "fixed",
+    // top: 0,
     width: "100%",
-    marginBottom: "1rem,",
+    // marginBottom: "0.5rem,",
   };
 
   const liStyle = {
@@ -75,8 +75,13 @@ function Root() {
         </ul>
       </nav>
       <div>
-        {/* <LazyLoadImage alt="" height={800} src={image1} width={800} /> */}
-        <img src={image} alt="home header pic"></img>
+        <LazyLoadImage
+          alt="header picture for journal jive"
+          height={250}
+          src={image}
+          width={350}
+        />
+        {/* <img src={image} alt="home header pic"></img> */}
       </div>
       <main>
         <Outlet />
