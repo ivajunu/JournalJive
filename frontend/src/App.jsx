@@ -2,6 +2,7 @@ import "./App.css";
 import image from "./assets/headerPic.png";
 import { Suspense } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Home = lazyWithPreload(() => import("./components/HomePage"));
 const Signin = lazyWithPreload(() => import("./components/SigninPage"));
@@ -67,7 +68,8 @@ function Root() {
         </ul>
       </nav>
       <div>
-        <img src={image} alt="home header pic"></img>
+        {/* <LazyLoadImage alt="" height={800} src={image1} width={800} />
+        <img src={image} alt="home header pic"></img> */}
       </div>
       <main>
         <Outlet />
