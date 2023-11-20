@@ -12,6 +12,7 @@ const LandingPage = () => {
     <div>
       <h1>Welcome back Username!</h1>
       <div style={linkStyle}>
+        <Link to="/blog">Create a blog post</Link>
         <Link to="/EditProfile">Edit</Link>
         <Link to="/DeleteProfile">Delete account</Link>
         <p>Info om GDPR</p>
