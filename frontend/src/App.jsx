@@ -1,5 +1,5 @@
 import "./App.css";
-// import image from "./assets/headerPic.png";
+import image from "./assets/headerPic.png";
 import { Suspense } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 // import { LazyLoadImage } from "react-lazy-load-image-component";
