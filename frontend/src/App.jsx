@@ -68,8 +68,8 @@ function Root() {
         </ul>
       </nav>
       <div>
-        {/* <LazyLoadImage alt="" height={800} src={image1} width={800} />
-        <img src={image} alt="home header pic"></img> */}
+        {/* <LazyLoadImage alt="" height={800} src={image1} width={800} /> */}
+        <img src={image} alt="home header pic"></img>
       </div>
       <main>
         <Outlet />
