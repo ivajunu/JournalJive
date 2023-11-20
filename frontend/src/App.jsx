@@ -18,6 +18,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import SuccessCreate from "./components/SuccessCreate";
+import GDPR from "./components/gdpr/GDPR";
 
 function Root() {
   const navStyle = {
@@ -77,6 +78,7 @@ function App() {
         { element: <EditProfile />, path: "/EditProfile" },
         { element: <DeleteProfile />, path: "/DeleteProfile" },
         { element: <SuccessCreate />, path: "/success" },
+        { element: <GDPR />, path: "/gdpr-info" },
       ],
       element: <Root />,
     },
