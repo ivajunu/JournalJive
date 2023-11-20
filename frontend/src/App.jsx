@@ -1,5 +1,5 @@
 import "./App.css";
-import image from "./assets/headerPic.png";
+// import image from "./assets/headerPic.png";
 import { Suspense } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 // import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -16,6 +16,7 @@ const EditProfile = lazyWithPreload(() => import("./components/EditProfile"));
 const DeleteProfile = lazyWithPreload(() =>
   import("./components/DeleteAccount")
 );
+const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
 
 Home.preload();
 Signin.preload();
@@ -25,6 +26,7 @@ DeleteProfile.preload();
 Signup.preload();
 LandingPage.preload();
 LandingPageReg.preload();
+GDPR.preload();
 
 import {
   createHashRouter,
@@ -145,6 +147,14 @@ function App() {
             </Suspense>
           ),
           path: "/landing-reg",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <GDPR />
+            </Suspense>
+          ),
+          path: "/gdpr-info",
         },
       ],
       element: <Root />,

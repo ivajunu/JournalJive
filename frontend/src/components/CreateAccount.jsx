@@ -4,7 +4,7 @@ import CheckBox from "./Forms/CheckBox";
 import Date from "./Forms/DatePicker";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // TOTO: set validation for document before posting
 
@@ -17,20 +17,21 @@ const RegisterForm = styled.div`
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
   padding: 15px;
+  width: 100%;
+  height: 100%;
 `;
 
 function CreateAccount() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState(null);
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [repeatPassword, setRepeatPassword] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
   const [accept, setAccept] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  // const [formValues, setFormvalues] = useState(null);
 
   useEffect(() => {
     if (accept === true) {
@@ -135,6 +136,8 @@ function CreateAccount() {
           }}
         />
         <div style={{ padding: "5px" }}>
+          <Link to="/gdpr-info">Terms and conditions</Link>
+
           <CheckBox
             label={"I accept the terms and conditions"}
             value={accept}
