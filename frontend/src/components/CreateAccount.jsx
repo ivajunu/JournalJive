@@ -3,7 +3,7 @@ import Input from "./Forms/Input";
 import CheckBox from "./Forms/CheckBox";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // TOTO: set validation for document before posting
 
@@ -135,7 +135,22 @@ function CreateAccount() {
           }}
         />
         <div style={{ padding: "5px" }}>
-          <Link to="/gdpr-info">Terms and conditions</Link>
+          <p
+            style={{
+              fontWeight: 500,
+              fontSize: "14px",
+              wordBreak: "break-word",
+            }}
+          >
+            Click on the button "Terms and conditions" to read about how we
+            collect data.
+          </p>
+          <FormButton
+            label={"Terms and conditions"}
+            onClick={() => {
+              navigate("/gdpr-info");
+            }}
+          ></FormButton>
 
           <CheckBox
             label={"I accept the terms and conditions"}
