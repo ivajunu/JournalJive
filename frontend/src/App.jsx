@@ -44,32 +44,25 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
   };
 
   const positionNav = {
-    display: "flex",
     alignItems: "center",
-    // position: "fixed",
-    // top: 0,
     width: "100%",
-    // marginBottom: "0.5rem,",
   };
 
-  const liStyle = {
-    marginRight: "20px",
-  };
   return (
     <>
       <nav style={positionNav}>
         <ul style={navStyle}>
-          <li style={liStyle}>
+          <li>
             <Link to="/">Home</Link>
           </li>
-          <li style={liStyle}>
+          <li>
             <Link to="/sign-in">Sign in</Link>
           </li>
-          <li style={liStyle}>
+          <li>
             <Link to="/view-blog">Blog</Link>
           </li>
         </ul>
