@@ -1,7 +1,6 @@
 import FormButton from "./Forms/FormButton";
 import Input from "./Forms/Input";
 import CheckBox from "./Forms/CheckBox";
-import Date from "./Forms/DatePicker";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -32,6 +31,7 @@ function CreateAccount() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [accept, setAccept] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  // const [NewPassword, setNewPassword] = useState("");
 
   useEffect(() => {
     if (accept === true) {
@@ -73,7 +73,7 @@ function CreateAccount() {
         setPassword("");
         setRepeatPassword("");
 
-        navigate("/Success");
+        navigate("/success-createuser");
       })
       .catch((error) => {
         console.error("Error creating user", error);
@@ -104,7 +104,6 @@ function CreateAccount() {
             setLastName(e.target.value);
           }}
         />
-        <Date />
         <Input
           placeholder={"Phone number"}
           value={phoneNumber}

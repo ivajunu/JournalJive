@@ -18,6 +18,9 @@ const DeleteProfile = lazyWithPreload(() =>
 );
 const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
 const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));
+const SuccessCreate = lazyWithPreload(() =>
+  import("./components/SuccessCreate")
+);
 
 Home.preload();
 Signin.preload();
@@ -165,6 +168,14 @@ function App() {
             </Suspense>
           ),
           path: "/view-blog",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <SuccessCreate />
+            </Suspense>
+          ),
+          path: "/success-createuser",
         },
       ],
       element: <Root />,
