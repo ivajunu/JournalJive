@@ -13,12 +13,6 @@ export default function FormButton(props) {
 
   return (
     <StyledFormButton
-      sx={{
-        "&:hover": {
-          backgroundColor: "#b3a48f",
-          color: "white",
-        },
-      }}
       onClick={onClick}
       variant="contained"
       disabled={disabled}

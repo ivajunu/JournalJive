@@ -1,0 +1,6 @@
+I frontendet använder vi oss av ett komponent bibliotek som heter mui materials.
+
+Vi importerar komponenterna och lägger till funktionaliteten själva.
+
+länk:
+https://mui.com/
