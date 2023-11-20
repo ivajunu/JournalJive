@@ -1,15 +1,32 @@
-// frontend/src/App.jsx
-
 import "./App.css";
-import image from "./assets/headerPic.png";
-import Home from "./components/HomePage";
-import SignIn from "./components/SigninPage";
-import SignUp from "./components/SignupPage";
-import LandingPage from "./components/LandingPage";
-import LandingPageReg from "./components/LandingPageReg";
-import Blog from "./components/BlogPage";
-import EditProfile from "./components/EditProfile";
-import DeleteProfile from "./components/DeleteAccount";
+// import image from "./assets/headerPic.png";
+import { Suspense } from "react";
+import { lazyWithPreload } from "react-lazy-with-preload";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+
+const Home = lazyWithPreload(() => import("./components/HomePage"));
+const Signin = lazyWithPreload(() => import("./components/SigninPage"));
+const Signup = lazyWithPreload(() => import("./components/SignupPage"));
+const LandingPage = lazyWithPreload(() => import("./components/LandingPage"));
+const LandingPageReg = lazyWithPreload(() =>
+  import("./components/LandingPageReg")
+);
+const Blog = lazyWithPreload(() => import("./components/BlogPage"));
+const EditProfile = lazyWithPreload(() => import("./components/EditProfile"));
+const DeleteProfile = lazyWithPreload(() =>
+  import("./components/DeleteAccount")
+);
+const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
+
+Home.preload();
+Signin.preload();
+Blog.preload();
+EditProfile.preload();
+DeleteProfile.preload();
+Signup.preload();
+LandingPage.preload();
+LandingPageReg.preload();
+GDPR.preload();
 
 import {
   createHashRouter,
@@ -17,8 +34,6 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import SuccessCreate from "./components/SuccessCreate";
-import GDPR from "./components/gdpr/GDPR";
 
 function Root() {
   const navStyle = {
@@ -34,7 +49,6 @@ function Root() {
     top: 0,
     width: "100%",
     marginBottom: "1rem,",
-    // zIndex: 1,
   };
 
   const liStyle = {
@@ -56,7 +70,8 @@ function Root() {
         </ul>
       </nav>
       <div>
-        <img src={image} alt="home header pic"></img>
+        {/* <LazyLoadImage alt="" height={800} src={image1} width={800} />
+        <img src={image} alt="home header pic"></img> */}
       </div>
       <main>
         <Outlet />
@@ -69,32 +84,88 @@ function App() {
   const router = createHashRouter([
     {
       children: [
-        { element: <Home />, path: "/" },
-        { element: <SignIn />, path: "/sign-in" },
-        { element: <SignUp />, path: "/sign-up" },
-        { element: <Blog />, path: "/blog" },
-        { element: <LandingPage />, path: "/LandingPage" },
-        { element: <LandingPageReg />, path: "/landing-reg" },
-        { element: <EditProfile />, path: "/EditProfile" },
-        { element: <DeleteProfile />, path: "/DeleteProfile" },
-        { element: <SuccessCreate />, path: "/success" },
-        { element: <GDPR />, path: "/gdpr-info" },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <Home />
+            </Suspense>
+          ),
+          path: "/",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <Signin />
+            </Suspense>
+          ),
+          path: "/sign-in",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <Blog />
+            </Suspense>
+          ),
+          path: "/blog",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <EditProfile />
+            </Suspense>
+          ),
+          path: "/EditProfile",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <DeleteProfile />
+            </Suspense>
+          ),
+          path: "/DeleteProfile",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <Signup />
+            </Suspense>
+          ),
+          path: "/sign-up",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <LandingPage />
+            </Suspense>
+          ),
+          path: "/LandingPage",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <LandingPageReg />
+            </Suspense>
+          ),
+          path: "/landing-reg",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <GDPR />
+            </Suspense>
+          ),
+          path: "/gdpr-info",
+        },
       ],
       element: <Root />,
     },
   ]);
 
   return (
-    // Alla inom routerprovider kan användas med <Link>
     <>
       <RouterProvider router={router}>
         <div>
-          <Home />
-          <SignIn />
-          <SignUp />
-          <Blog />
-          <LandingPage />
-          <LandingPageReg />
+          <Outlet />
         </div>
       </RouterProvider>
     </>

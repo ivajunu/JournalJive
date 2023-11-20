@@ -12,18 +12,26 @@ body {
   display: flex;
   align-items: center;
   font-family: "Montserrat", "Helvetica Neue", sans-serif;
-  letter-spacing: 2px;
   /* font-weight: 100; */
   background-color: rgba(216, 216, 216, 0.342);
 }
 
 h1,
+h2,
+h3,
 p,
 a {
   text-decoration: none;
-  text-transform: uppercase;
   color: rgb(34, 34, 34);
   text-align: center;
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 ul {
