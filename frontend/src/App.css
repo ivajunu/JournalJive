@@ -24,12 +24,6 @@ a {
   text-decoration: none;
   color: rgb(34, 34, 34);
   text-align: center;
-  letter-spacing: 1px;
-}
-
-h1,
-h2,
-h3 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -54,8 +48,8 @@ a:hover {
 } */
 
 img {
-  width: 21rem;
-  height: 13rem;
+  /* width: 21rem;
+  height: 13rem; */
   border-radius: 5%;
   margin: 3rem auto;
   display: flex;
