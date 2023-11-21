@@ -125,7 +125,7 @@ function App() {
               <EditProfile />
             </Suspense>
           ),
-          path: "/EditProfile",
+          path: "/edit-profile",
         },
         {
           element: (
@@ -133,7 +133,7 @@ function App() {
               <DeleteProfile />
             </Suspense>
           ),
-          path: "/DeleteProfile",
+          path: "/delete-profile",
         },
         {
           element: (
@@ -149,7 +149,7 @@ function App() {
               <LandingPage />
             </Suspense>
           ),
-          path: "/LandingPage",
+          path: "/landing-page",
         },
         {
           element: (
@@ -189,7 +189,7 @@ function App() {
               <GdprLanding />
             </Suspense>
           ),
-          path: "/GdprLanding",
+          path: "/gdpr-landing",
         },
       ],
       element: <Root />,
