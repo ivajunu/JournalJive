@@ -18,6 +18,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const createaccount = require("./routes/createaccount");
+createaccount.client = client;
+app.use(createaccount);
+
 const signin = require("./routes/signin");
 signin.client = client;
 app.use(signin);
@@ -26,9 +30,9 @@ const blog = require("./routes/blog");
 blog.client = client;
 app.use(blog);
 
-const createaccount = require("./routes/createaccount");
-createaccount.client = client;
-app.use(createaccount);
+const deleteaccount = require("./routes/deleteaccount");
+deleteaccount.client = client;
+app.use(deleteaccount);
 
 // hämtar alla bloggar
 app.get("/api", async (_request, response) => {

@@ -10,9 +10,6 @@ const SignInPage = () => {
   const navigate = useNavigate();
   // const [loggedInUser, SetLoggedInUser] = useState([]);
 
-  // const textStyle = {
-  //   margin: "2rem",
-  // };
   const containerStyle = {
     display: "flex",
     flexDirection: "column",
