@@ -15,7 +15,7 @@ const LandingPage = () => {
         <Link to="/blog">Create a blog post</Link>
         <Link to="/EditProfile">Edit</Link>
         <Link to="/DeleteProfile">Delete account</Link>
-        <p>Info om GDPR</p>
+        <Link to="/gdpr-info">Info om GDPR</Link>
         <p>Log out</p>
       </div>
     </div>
