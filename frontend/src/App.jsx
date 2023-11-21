@@ -21,6 +21,9 @@ const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));
 const SuccessCreate = lazyWithPreload(() =>
   import("./components/SuccessCreate")
 );
+const GdprLanding = lazyWithPreload(() =>
+  import("./components/gdpr/GdprLanding")
+);
 
 Home.preload();
 Signin.preload();
@@ -32,6 +35,7 @@ LandingPage.preload();
 LandingPageReg.preload();
 GDPR.preload();
 ViewBlog.preload();
+GdprLanding.preload();
 
 import {
   createHashRouter,
@@ -73,7 +77,7 @@ function Root() {
           height={250}
           src={image}
           visibleByDefault={true}
-          width={350}
+          width={375}
         />
         {/* <img src={image} alt="home header pic"></img> */}
       </div>
@@ -175,6 +179,14 @@ function App() {
             </Suspense>
           ),
           path: "/success-createuser",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <GdprLanding />
+            </Suspense>
+          ),
+          path: "/GdprLanding",
         },
       ],
       element: <Root />,
