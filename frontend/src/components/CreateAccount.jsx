@@ -147,8 +147,8 @@ function CreateAccount() {
               wordBreak: "break-word",
             }}
           >
-            Click on the button "Terms and conditions" to read about how we
-            collect data.
+            Click on the button below, (Terms and conditions) to read about how
+            we collect data.
           </p>
           <div style={buttonStyle}>
             <FormButton

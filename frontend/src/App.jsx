@@ -7,14 +7,18 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const Home = lazyWithPreload(() => import("./components/HomePage"));
 const Signin = lazyWithPreload(() => import("./components/SigninPage"));
 const Signup = lazyWithPreload(() => import("./components/SignupPage"));
-const LandingPage = lazyWithPreload(() => import("./components/LandingPage"));
+const LandingPage = lazyWithPreload(() =>
+  import("./components/mypages/LandingPage")
+);
 const LandingPageReg = lazyWithPreload(() =>
   import("./components/LandingPageReg")
 );
 const Blog = lazyWithPreload(() => import("./components/BlogPage"));
-const EditProfile = lazyWithPreload(() => import("./components/EditProfile"));
+const EditProfile = lazyWithPreload(() =>
+  import("./components/mypages/EditProfile")
+);
 const DeleteProfile = lazyWithPreload(() =>
-  import("./components/DeleteAccount")
+  import("./components/mypages/DeleteAccount")
 );
 const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
 const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));

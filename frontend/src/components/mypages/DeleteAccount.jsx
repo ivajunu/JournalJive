@@ -1,4 +1,4 @@
-import FormButton from "./Forms/FormButton";
+import FormButton from "../Forms/FormButton";
 import { useNavigate } from "react-router-dom";
 
 const DeleteProfile = () => {

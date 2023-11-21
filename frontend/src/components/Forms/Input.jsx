@@ -20,7 +20,7 @@ const StyledInput = styled(TextField)`
 `;
 
 function Input(props) {
-  const { placeholder, value, onChange, type, rows } = props;
+  const { placeholder, value, onChange, type, rows, disabled } = props;
   return (
     <div style={{ margin: "7px" }}>
       <StyledInput
@@ -31,6 +31,7 @@ function Input(props) {
         value={value}
         type={type}
         rows={rows}
+        disabled={disabled}
       />
     </div>
   );
@@ -42,6 +43,7 @@ Input.propTypes = {
   value: PropTypes.node,
   type: PropTypes.string,
   rows: PropTypes.number,
+  disabled: PropTypes.bool,
 };
 
 export default Input;
