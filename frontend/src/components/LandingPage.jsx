@@ -8,7 +8,7 @@ const LandingPage = () => {
     justifyContent: "space-evenly",
   };
   const links = {
-    margin: "1rem",
+    margin: "0.5rem",
   };
   const logOut = {
     marginTop: "2rem",
