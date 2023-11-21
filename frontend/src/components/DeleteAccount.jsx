@@ -13,7 +13,7 @@ const DeleteProfile = () => {
         <FormButton
           label={"Back"}
           onClick={() => {
-            navigate("/LandingPage");
+            navigate("/landing-page");
           }}
         ></FormButton>
       </div>

@@ -23,7 +23,7 @@ export default function GDPR() {
         <FormButton
           label={"Back"}
           onClick={() => {
-            navigate("/LandingPage");
+            navigate("/landing-page");
           }}
         ></FormButton>
       </StyledDiv>

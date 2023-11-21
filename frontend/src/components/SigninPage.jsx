@@ -45,7 +45,7 @@ const SignInPage = () => {
         );
         // varje gpng jag plockar bort console loggen blir det massa fel
         console.log(data.message);
-        navigate("/LandingPage");
+        navigate("/landing-page");
       } else {
         alert(data.message);
       }

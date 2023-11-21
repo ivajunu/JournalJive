@@ -12,7 +12,7 @@ const EditProfile = () => {
         <FormButton
           label={"Back"}
           onClick={() => {
-            navigate("/LandingPage");
+            navigate("/landing-page");
           }}
         ></FormButton>
       </div>

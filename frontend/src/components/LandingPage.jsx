@@ -39,13 +39,13 @@ const LandingPage = () => {
         <Link to="/blog" style={links}>
           Create a blog post
         </Link>
-        <Link to="/EditProfile" style={links}>
+        <Link to="/edit-profile" style={links}>
           Edit profile
         </Link>
-        <Link to="/DeleteProfile" style={links}>
+        <Link to="/delete-profile" style={links}>
           Delete account
         </Link>
-        <Link to="/GdprLanding" style={links}>
+        <Link to="/gdpr-landing" style={links}>
           GDPR
         </Link>
         <div style={logOut}>

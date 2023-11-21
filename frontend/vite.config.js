@@ -45,7 +45,7 @@ export default defineConfig({
       },
       runtimeCaching: [
         {
-          urlPattern: "http://localhost:3000/blog/",
+          urlPattern: "http://localhost:3000/blog",
           handler: "NetworkFirst",
         },
       ],
