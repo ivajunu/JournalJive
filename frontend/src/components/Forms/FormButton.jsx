@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 const StyledFormButton = styled(Button)`
   && {
     background-color: #7f6e55;
+    margin: 0.5rem;
   }
 `;
 
