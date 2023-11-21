@@ -48,12 +48,13 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    // justifyContent: "space-around ",
+    flexDirection: "row",
+    justifyContent: "space-around ",
     fontSize: "1.2rem",
-    // margin: "0.5rem",
   };
 
   const positionNav = {
+    display: "flex",
     alignItems: "center",
     width: "100%",
   };
