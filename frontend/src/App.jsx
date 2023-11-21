@@ -14,11 +14,9 @@ const LandingPageReg = lazyWithPreload(() =>
   import("./components/LandingPageReg")
 );
 const Blog = lazyWithPreload(() => import("./components/BlogPage"));
-const EditProfile = lazyWithPreload(() =>
-  import("./components/mypages/EditProfile")
-);
-const DeleteProfile = lazyWithPreload(() =>
-  import("./components/mypages/DeleteAccount")
+const EditProfile = lazyWithPreload(() => import("./components/EditProfile"));
+const DeleteAccount = lazyWithPreload(() =>
+  import("./components/DeleteAccount")
 );
 const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
 const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));
@@ -33,7 +31,7 @@ Home.preload();
 Signin.preload();
 Blog.preload();
 EditProfile.preload();
-DeleteProfile.preload();
+DeleteAccount.preload();
 Signup.preload();
 LandingPage.preload();
 LandingPageReg.preload();
@@ -138,10 +136,10 @@ function App() {
         {
           element: (
             <Suspense fallback={<>Loading...</>}>
-              <DeleteProfile />
+              <DeleteAccount />
             </Suspense>
           ),
-          path: "/delete-profile",
+          path: "/delete-account",
         },
         {
           element: (

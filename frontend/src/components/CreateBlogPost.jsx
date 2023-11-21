@@ -4,6 +4,7 @@ import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
 import { useState } from "react";
 import BlogCard from "./Blog/BlogCard";
+import { useNavigate } from "react-router-dom";
 
 // TODO: set validation for document before posting
 
@@ -23,6 +24,7 @@ const RegisterForm = styled.div`
 function CreateBlogPost() {
   const [title, setTitle] = useState("");
   const [blogPost, setblogPost] = useState("");
+  const navigate = useNavigate();
 
   async function handleBlogValues(e) {
     e.preventDefault();
@@ -71,12 +73,19 @@ function CreateBlogPost() {
               setblogPost(e.target.value);
             }}
           />
-          <div style={{ padding: "5px" }}>
+          <div style={{ padding: "5px", margin: "1rem" }}>
             <FormButton
               type="submit"
               label={"Post"}
               onClick={handleBlogValues}
             />
+
+            <FormButton
+              label={"Back"}
+              onClick={() => {
+                navigate("/landing-page");
+              }}
+            ></FormButton>
           </div>
         </form>
       </RegisterForm>

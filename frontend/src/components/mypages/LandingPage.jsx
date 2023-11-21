@@ -42,7 +42,7 @@ const LandingPage = () => {
         <Link to="/edit-profile" style={links}>
           Edit profile
         </Link>
-        <Link to="/delete-profile" style={links}>
+        <Link to="/delete-account" style={links}>
           Delete account
         </Link>
         <Link to="/gdpr-landing" style={links}>
