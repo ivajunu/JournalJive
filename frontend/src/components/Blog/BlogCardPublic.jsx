@@ -24,7 +24,10 @@ export default function BlogCardPublic() {
   }, []);
 
   return viewBlogs.map((blog, index) => (
-    <Card sx={{ maxWidth: 400, marginBottom: "2rem" }} key={index}>
+    <Card
+      sx={{ maxWidth: 400, marginBottom: "2rem", border: "solid 2px #7f6e55" }}
+      key={index}
+    >
       <CardActionArea>
         <CardContent>
           <div>

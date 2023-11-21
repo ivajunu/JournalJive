@@ -1,6 +1,6 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Button, CardActionArea, CardActions, Typography } from "@mui/material";
+import { Button, CardActionArea, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 
 export default function BlogCard() {
@@ -35,11 +35,12 @@ export default function BlogCard() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        border: "solid 2px #7f6e55",
       }}
       key={index}
     >
-      <CardActionArea>
-        <CardContent>
+      <CardActionArea sx={{ marginBottom: "1rem" }}>
+        <CardContent sx={{ marginBottom: "1rem" }}>
           <div>
             <Typography sx={{ fontWeight: "bold", fontSize: "20px" }}>
               {blog.blog_title}
@@ -49,14 +50,26 @@ export default function BlogCard() {
         </CardContent>
       </CardActionArea>
       {/* Ternery operator */}
-      <CardActions>
-        <Button size="small" color="primary">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <Button
+          size="small"
+          sx={{ fontWeight: "bold", color: " rgb(34, 34, 34)" }}
+        >
           Edit
         </Button>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          sx={{ fontWeight: "bold", color: " rgb(34, 34, 34)" }}
+        >
           Delete
         </Button>
-      </CardActions>
+      </div>
     </Card>
   ));
 }
