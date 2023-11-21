@@ -14,9 +14,11 @@ const LandingPageReg = lazyWithPreload(() =>
   import("./components/LandingPageReg")
 );
 const Blog = lazyWithPreload(() => import("./components/BlogPage"));
-const EditProfile = lazyWithPreload(() => import("./components/EditProfile"));
+const EditProfile = lazyWithPreload(() =>
+  import("./components/mypages/EditProfile")
+);
 const DeleteAccount = lazyWithPreload(() =>
-  import("./components/DeleteAccount")
+  import("./components/mypages/DeleteAccount")
 );
 const GDPR = lazyWithPreload(() => import("./components/gdpr/GDPR"));
 const ViewBlog = lazyWithPreload(() => import("./components/ViewBlogPost"));

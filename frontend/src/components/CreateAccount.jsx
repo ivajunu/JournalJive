@@ -46,6 +46,19 @@ function CreateAccount() {
     }
   }, [accept]);
 
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/createaccount", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // }, []);
+
   function handleFormValues(e) {
     e.preventDefault();
 
