@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // import CustomButton from "./Forms/Button";
 import Input from "../components/Forms/Input";
 import FormButton from "./Forms/FormButton";
@@ -8,7 +8,7 @@ const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [loggedInUser, SetLoggedInUser] = useState([]);
+  // const [loggedInUser, SetLoggedInUser] = useState([]);
 
   const textStyle = {
     margin: "2rem",
@@ -38,14 +38,14 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        localStorage.SetLoggedInUser(
-          "loggedInUser",
-          JSON.stringify(loggedInUser)[loggedInUser]
-        );
+        // localStorage.setUserName(
+        //   "userName",
+        //   JSON.stringify(userName)[userName]
+        // );
         // localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         console.log(
           "user från localStorage:",
-          localStorage.getItem("loggedInUser")
+          localStorage.getItem("userName")
         );
         // varje gpng jag plockar bort console loggen blir det massa fel
         console.log(data.message);

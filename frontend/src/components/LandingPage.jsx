@@ -7,10 +7,10 @@ const LandingPage = () => {
 
   useEffect(() => {
     try {
-      const loggedInUser = localStorage.getItem("loggedInUser");
+      const userName = localStorage.getItem("userName");
 
-      if (loggedInUser) {
-        const user = JSON.parse(loggedInUser);
+      if (userName) {
+        const user = JSON.parse(userName);
         setUsername(user.userName);
       }
     } catch (error) {
