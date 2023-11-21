@@ -72,6 +72,8 @@ function CreateBlogPost() {
 
   return (
     <>
+      <p>Koppla bloggen med användaren som loggar in.</p>
+      <p>edit och delete-knapp i cardsen</p>
       <RegisterForm>
         <form>
           <InputTitle

@@ -2,7 +2,6 @@ import { useState } from "react";
 // import CustomButton from "./Forms/Button";
 import Input from "../components/Forms/Input";
 import FormButton from "./Forms/FormButton";
-// import LandingPage from "./LandingPage";
 import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
@@ -19,15 +18,6 @@ const SignInPage = () => {
     alignItems: "center",
   };
   const buttonStyle = { margin: "1rem" };
-
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   const signinValue = {
-  //     username: userName,
-  //     password: password,
-  //   };
-  //   console.log(signinValue);
-  // }
 
   async function handleClick(e) {
     e.preventDefault();
@@ -47,7 +37,6 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        alert(data.message);
         navigate("/LandingPage");
       } else {
         alert(data.message);

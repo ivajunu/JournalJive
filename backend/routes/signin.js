@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const app = express();
 const client = require("../index");
 
 router.post("/signin", async (req, res) => {
@@ -12,14 +11,12 @@ router.post("/signin", async (req, res) => {
       [username, password]
     );
     if (result.rows.length > 0) {
-      res.status(200).json({ message: "Successfully signed in" });
+      res.status(200).json({ message: "Welcome! Let's start blogging!" });
     } else {
-      res
-        .status(401)
-        .json({
-          message:
-            "Something isn't adding up... Please doublecheck the credentials you've put in and try again :)",
-        });
+      res.status(401).json({
+        message:
+          "Something isn't adding up... Please doublecheck the credentials you've put in and try again :)",
+      });
     }
   } catch (error) {
     console.error("Error during sign-in", error);
@@ -41,5 +38,3 @@ router.get("/signin", async (_req, res) => {
 });
 
 module.exports = router;
-
-// gör en get sök igenom reslutatet match by i databas
