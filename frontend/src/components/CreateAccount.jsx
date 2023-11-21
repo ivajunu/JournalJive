@@ -15,9 +15,10 @@ const RegisterForm = styled.div`
   border: solid 2px #7f6e55;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
-  padding: 15px;
-  width: 100%;
+  padding: 1rem;
+  width: 95%;
   height: 100%;
+  margin: 0.5rem;
 `;
 
 function CreateAccount() {

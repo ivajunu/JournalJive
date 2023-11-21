@@ -8,6 +8,11 @@ const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  // const [loggedIn, setLoggedIn] = useState([]);
+
+  // useEffect(() => {
+  //   localStorage.setLoggedIn("loggedIn", JSON.stringify(user));
+  // }, [loggedIn]);
 
   const textStyle = {
     margin: "2rem",
@@ -37,6 +42,13 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
+        console.log("user från servern:", data.user);
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        console.log(
+          "user från localStorage:",
+          localStorage.getItem("loggedInUser")
+        );
+        // varje gpng jag plockar bort console loggen blir det massa fel
         console.log(data.message);
         navigate("/LandingPage");
       } else {
