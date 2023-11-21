@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const LandingPage = () => {
-  const [username, setUsername] = useState("");
+  const [userName, setUsername] = useState("");
 
   useEffect(() => {
     try {
@@ -11,7 +11,7 @@ const LandingPage = () => {
 
       if (loggedInUser) {
         const user = JSON.parse(loggedInUser);
-        setUsername(user.username);
+        setUsername(user.userName);
       }
     } catch (error) {
       console.error("Error fetching user from local storage", error);
@@ -21,7 +21,7 @@ const LandingPage = () => {
   const linkStyle = {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   };
   const links = {
     margin: "0.5rem",
@@ -34,7 +34,7 @@ const LandingPage = () => {
 
   return (
     <div>
-      <h1>Welcome back {username}!</h1>
+      <h1>Welcome back {userName}!</h1>
       <div style={linkStyle}>
         <Link to="/blog" style={links}>
           Create a blog post

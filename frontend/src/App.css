@@ -38,7 +38,7 @@ a {
   color: inherit;
   transition: background-color 0.3s ease-in-out;
   /* margin: 1rem 0.5rem; */
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 /* li,
@@ -51,7 +51,7 @@ img {
   /* width: 21rem;
   height: 13rem; */
   border-radius: 5%;
-  margin: 3rem auto;
+  margin: 1rem auto;
   display: flex;
   align-self: center;
 }

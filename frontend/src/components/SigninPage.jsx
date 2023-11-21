@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import CustomButton from "./Forms/Button";
 import Input from "../components/Forms/Input";
 import FormButton from "./Forms/FormButton";
@@ -8,11 +8,7 @@ const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const [loggedInUser, SetLoggedInUser] = useState([]);
-
-  // useEffect(() => {
-  //   localStorage.setLoggedIn("loggedIn", JSON.stringify(user));
-  // }, [loggedIn]);
+  const [loggedInUser, SetLoggedInUser] = useState([]);
 
   const textStyle = {
     margin: "2rem",
@@ -42,7 +38,11 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        localStorage.SetLoggedInUser(
+          "loggedInUser",
+          JSON.stringify(loggedInUser)[loggedInUser]
+        );
+        // localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         console.log(
           "user från localStorage:",
           localStorage.getItem("loggedInUser")

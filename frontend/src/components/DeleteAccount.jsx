@@ -8,6 +8,7 @@ const DeleteProfile = () => {
       <div>
         <h1>RADERA PROFIL OCH ANVÄNDARUPPGIFTER</h1>
       </div>
+      {/* VARNA "VILL DU VERKLIGEN?" "SISTA CHANSEN ATT ÅNGRA SIG, ALLT KOMMER FÖRSVINNA ÄVEN BLOGGINLÄGG" SEn kommer en notis att kontott är raderat och vi kommer sakna dig sne skickas man till startsidan */}
       <div>
         <FormButton
           label={"Back"}

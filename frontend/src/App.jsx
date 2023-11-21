@@ -48,7 +48,9 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-around ",
+    fontSize: "1.2rem",
+    margin: "0.5rem",
   };
 
   const positionNav = {
@@ -71,7 +73,8 @@ function Root() {
           </li>
         </ul>
       </nav>
-      <div>
+
+      <Link to="/">
         <LazyLoadImage
           alt="header picture for journal jive"
           height={250}
@@ -79,8 +82,8 @@ function Root() {
           visibleByDefault={true}
           width={375}
         />
-        {/* <img src={image} alt="home header pic"></img> */}
-      </div>
+      </Link>
+
       <main>
         <Outlet />
       </main>

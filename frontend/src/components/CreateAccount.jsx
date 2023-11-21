@@ -21,6 +21,10 @@ const RegisterForm = styled.div`
   margin: 0.5rem;
 `;
 
+const buttonStyle = {
+  margin: "1rem",
+};
+
 function CreateAccount() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
@@ -146,13 +150,14 @@ function CreateAccount() {
             Click on the button "Terms and conditions" to read about how we
             collect data.
           </p>
-          <FormButton
-            label={"Terms and conditions"}
-            onClick={() => {
-              navigate("/gdpr-info");
-            }}
-          ></FormButton>
-
+          <div style={buttonStyle}>
+            <FormButton
+              label={"Terms and conditions"}
+              onClick={() => {
+                navigate("/gdpr-info");
+              }}
+            ></FormButton>
+          </div>
           <CheckBox
             label={"I accept the terms and conditions"}
             value={accept}

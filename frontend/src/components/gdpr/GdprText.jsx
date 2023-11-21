@@ -6,7 +6,7 @@ const StyledP = styled.p`
 `;
 
 const StyledHeadline = styled.h2`
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: underline;
   font-weight: 900;
   color: #57452b;
