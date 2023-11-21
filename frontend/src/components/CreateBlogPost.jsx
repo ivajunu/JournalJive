@@ -2,7 +2,8 @@ import FormButton from "./Forms/FormButton";
 import InputBlog from "./Blog/InputBlog";
 import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import BlogCard from "./Blog/BlogCard";
 
 // TODO: set validation for document before posting
 
@@ -20,28 +21,6 @@ const RegisterForm = styled.div`
 function CreateBlogPost() {
   const [title, setTitle] = useState("");
   const [blogPost, setblogPost] = useState("");
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    // Hämtar data från databasen
-    async function fetchData() {
-      try {
-        const response = await fetch("/api");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-
-        console.log("Fetched data: ", data);
-
-        setBlogs(data);
-      } catch (error) {
-        console.error("Failed to fetch data: ", error);
-      }
-    }
-
-    fetchData();
-  }, []);
 
   async function handleBlogValues(e) {
     e.preventDefault();
@@ -99,14 +78,16 @@ function CreateBlogPost() {
           </div>
         </form>
       </RegisterForm>
-
-      <div>
-        {blogs.map((blog, index) => (
-          <div key={index}>
-            <h2>{blog.blog_title}</h2>
-            <p>{blog.blog_text}</p>
-          </div>
-        ))}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2rem",
+        }}
+      >
+        <BlogCard />
       </div>
     </>
   );
