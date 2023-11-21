@@ -48,14 +48,11 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around ",
-    fontSize: "1.2rem",
   };
 
   const positionNav = {
     display: "flex",
-    alignItems: "center",
+    justifyContent: "center",
     width: "100%",
   };
 
@@ -64,13 +61,19 @@ function Root() {
       <nav style={positionNav}>
         <ul style={navStyle}>
           <li>
-            <Link to="/">Home</Link>
+            <Link style={{ marginRight: "1rem" }} to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/sign-in">Sign in</Link>
+            <Link style={{ marginRight: "1rem" }} to="/sign-in">
+              Sign in
+            </Link>
           </li>
           <li>
-            <Link to="/view-blog">Blog</Link>
+            <Link style={{ marginRight: "1rem" }} to="/view-blog">
+              Blog
+            </Link>
           </li>
         </ul>
       </nav>
