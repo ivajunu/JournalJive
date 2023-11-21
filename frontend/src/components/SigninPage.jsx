@@ -38,11 +38,7 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        // localStorage.setUserName(
-        //   "userName",
-        //   JSON.stringify(userName)[userName]
-        // );
-        // localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        localStorage.setItem("userName", JSON.stringify(userName));
         console.log(
           "user från localStorage:",
           localStorage.getItem("userName")

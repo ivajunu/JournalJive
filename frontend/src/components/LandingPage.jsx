@@ -1,6 +1,7 @@
 // import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+// import SignInPage from "./SigninPage";
 
 const LandingPage = () => {
   const [userName, setUsername] = useState("");
@@ -10,8 +11,7 @@ const LandingPage = () => {
       const userName = localStorage.getItem("userName");
 
       if (userName) {
-        const user = JSON.parse(userName);
-        setUsername(user.userName);
+        setUsername(JSON.parse(userName));
       }
     } catch (error) {
       console.error("Error fetching user from local storage", error);
