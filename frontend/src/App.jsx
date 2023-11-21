@@ -48,9 +48,9 @@ function Root() {
   const navStyle = {
     listStyleType: "none",
     display: "flex",
-    justifyContent: "space-around ",
+    // justifyContent: "space-around ",
     fontSize: "1.2rem",
-    margin: "0.5rem",
+    // margin: "0.5rem",
   };
 
   const positionNav = {
