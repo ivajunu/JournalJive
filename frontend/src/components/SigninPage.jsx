@@ -37,6 +37,7 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
+        console.log(data.message);
         navigate("/LandingPage");
       } else {
         alert(data.message);
