@@ -8,7 +8,7 @@ const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const [loggedIn, setLoggedIn] = useState([]);
+  // const [loggedInUser, SetLoggedInUser] = useState([]);
 
   // useEffect(() => {
   //   localStorage.setLoggedIn("loggedIn", JSON.stringify(user));
@@ -42,7 +42,6 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        console.log("user från servern:", data.user);
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         console.log(
           "user från localStorage:",
