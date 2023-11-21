@@ -72,6 +72,7 @@ function Root() {
           alt="header picture for journal jive"
           height={250}
           src={image}
+          visibleByDefault={true}
           width={350}
         />
         {/* <img src={image} alt="home header pic"></img> */}
