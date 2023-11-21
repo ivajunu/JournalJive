@@ -11,7 +11,7 @@ router.post("/signin", async (req, res) => {
       [username, password]
     );
     if (result.rows.length > 0) {
-      res.status(200).json;
+      res.status(200).json({ message: "Inloggning lyckad. Börja blogga :)" });
     } else {
       res.status(401).json({
         message:
