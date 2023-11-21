@@ -49,7 +49,7 @@ function Root() {
     listStyleType: "none",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around ",
+    justifyContent: "space-around",
     fontSize: "1.2rem",
   };
 
