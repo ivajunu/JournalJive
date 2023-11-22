@@ -37,6 +37,14 @@ const blog = require("./routes/blog");
 blog.client = client;
 app.use(blog);
 
+const editblogpost = require("./routes/editblogpost");
+editblogpost.client = client;
+app.use(editblogpost);
+
+const deleteblogpost = require("./routes/deleteblogpost");
+deleteblogpost.client = client;
+app.use(deleteblogpost);
+
 const editaccount = require("./routes/editaccount");
 editaccount.client = client;
 app.use(editaccount);
