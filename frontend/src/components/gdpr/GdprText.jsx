@@ -15,6 +15,7 @@ const StyledHeadline = styled.h2`
 const StyledLi = styled.li`
   list-style: none;
   padding: 0.5rem;
+  text-align: left;
 `;
 
 export default function GdprText() {
