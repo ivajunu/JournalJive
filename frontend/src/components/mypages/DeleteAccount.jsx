@@ -46,45 +46,24 @@ const DeleteProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        closeDeletePopUp();
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error deleting user", error);
       });
   }
 
-  // const handleDelete = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3000/deleteaccount", {
-  //       method: "DELETE",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         username: username,
-  //         password: password,
-  //       }),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-
-  //     const data = await response.json();
-  //     console.log(data);
-  //     closeDeletePopUp();
-  //   } catch (error) {
-  //     console.error("Error deleting user:", error);
-  //   }
-  // };
-
   return (
     <>
       <div>
         <h1>Delete profile</h1>
       </div>
-      {/* VARNA "VILL DU VERKLIGEN?" "SISTA CHANSEN ATT ÅNGRA SIG, ALLT KOMMER FÖRSVINNA ÄVEN BLOGGINLÄGG" SEn kommer en notis att kontott är raderat och vi kommer sakna dig sne skickas man till startsidan */}
       <div>
-        <p>Vill du verkligen radera ditt konto? Detta kan inte ångras.</p>
+        <p>
+          Do you really want to delete your account? This action cannot be
+          undone.
+        </p>
         <FormButton label={"Delete"} onClick={openConfirmation}></FormButton>
         <FormButton
           label={"Back"}
@@ -93,22 +72,20 @@ const DeleteProfile = () => {
           }}
         ></FormButton>
       </div>
-
-      {/* Bekräftelsemodal */}
       <Dialog open={popUpOpen} onClose={closeConfirmation}>
         <DialogTitle>
-          Alla dina blogginlägg kommer försvinna! Är du verkligen säker?
+          All your blog posts will disappear! Are you absolutely sure?
         </DialogTitle>
         <DialogActions>
-          <FormButton label={"Ja"} onClick={openDeletePopUp}></FormButton>
-          <FormButton label={"Nej"} onClick={closeConfirmation}></FormButton>
+          <FormButton label={"Yes"} onClick={openDeletePopUp}></FormButton>
+          <FormButton label={"No"} onClick={closeConfirmation}></FormButton>
         </DialogActions>
       </Dialog>
 
-      {/* Raderingsmodal */}
       <Dialog open={deletePopUpOpen} onClose={closeDeletePopUp}>
         <DialogTitle>
-          Fyll i ditt användarnamn och lösenord för att bekräfta radering.
+          Enter your username and password to confirm deletion. We're gonna miss
+          you!
         </DialogTitle>
         <DialogContent>
           <TextField
