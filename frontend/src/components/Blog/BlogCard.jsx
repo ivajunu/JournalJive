@@ -10,7 +10,7 @@ export default function BlogCard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("/api");
+        const response = await fetch("/blog");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
