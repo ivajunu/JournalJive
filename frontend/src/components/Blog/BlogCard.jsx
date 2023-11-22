@@ -7,6 +7,8 @@ export default function BlogCard() {
   //   const [logedIn, setLogedIn] = useState(false);
   const [viewBlogs, setViewBlogs] = useState([]);
 
+  const [blogPost, setBlogPost] = useState("");
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -19,6 +21,7 @@ export default function BlogCard() {
         console.log("Fetched data: ", data);
 
         setViewBlogs(data);
+        setBlogPost(viewBlogs.blog_title);
       } catch (error) {
         console.error("Failed to fetch data: ", error);
       }
@@ -26,6 +29,25 @@ export default function BlogCard() {
 
     fetchData();
   }, []);
+
+  function DeleteBlogpost() {
+    fetch("http://localhost:3000/deleteblogpost", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: blogPost,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error deleting user", error);
+      });
+  }
 
   return viewBlogs.map((blog, index) => (
     <Card
@@ -66,6 +88,7 @@ export default function BlogCard() {
         <Button
           size="small"
           sx={{ fontWeight: "bold", color: " rgb(34, 34, 34)" }}
+          onClick={DeleteBlogpost}
         >
           Delete
         </Button>

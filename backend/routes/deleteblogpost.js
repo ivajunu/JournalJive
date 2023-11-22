@@ -4,16 +4,14 @@ const client = require("../index");
 
 router.delete("/deleteblogpost", async (req, res) => {
   try {
-    const { title, blogPost } = req.body;
-    console.log("GRATTIS du har raderat ett blogginlägg");
-
+    const { title } = req.body;
     console.log(req.body);
 
     const result = await router.client.query(
-      "DELETE FROM blogs (blog_title, blog_text) VALUES ($1, $2);",
-      [title, blogPost]
+      "DELETE FROM blogs WHERE blog_title = $1;",
+      [title]
     );
-    console.log(result, userName);
+
     if (result.rowCount > 0) {
       res
         .status(200)
