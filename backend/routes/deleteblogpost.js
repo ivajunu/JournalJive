@@ -5,13 +5,12 @@ const client = require("../index");
 router.delete("/deleteblogpost", async (req, res) => {
   try {
     const { title } = req.body;
-    console.log(req.body);
 
     const result = await router.client.query(
       "DELETE FROM blogs WHERE blog_title = $1;",
       [title]
     );
-
+    console.log(title);
     if (result.rowCount > 0) {
       res
         .status(200)
