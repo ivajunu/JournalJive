@@ -1,3 +1,5 @@
+/* ts-check */
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -17,6 +19,11 @@ client.connect();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use((request, response, next) => {
+  console.log(request.url);
+  next();
+});
 
 const createaccount = require("./routes/createaccount");
 createaccount.client = client;
