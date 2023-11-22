@@ -30,7 +30,7 @@ const EditProfile = () => {
   const [disabledInput, setDisabledInput] = useState(true);
 
   const [editMode, setEditMode] = useState(true);
-  const UserDisabled = true;
+  // const UserDisabled = true;
 
   const navigate = useNavigate();
 
@@ -47,7 +47,22 @@ const EditProfile = () => {
       password: password,
     };
 
-    console.log("Ändrade värden: ", { editedValues });
+    // console.log("Ändrade värden: ", { editedValues });
+
+    fetch("http://localhost:3000/editaccount", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedValues),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error editing person info", error);
+      });
   }
 
   return (
@@ -69,7 +84,7 @@ const EditProfile = () => {
           onChange={(e) => {
             setUserName(e.target.value);
           }}
-          disabled={UserDisabled}
+          // disabled={UserDisabled}
         />
         <div>
           <p>First & Lastname</p>
