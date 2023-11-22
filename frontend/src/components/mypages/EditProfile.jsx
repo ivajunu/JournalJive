@@ -74,7 +74,7 @@ const EditProfile = () => {
         <div>
           <p>First & Lastname</p>
           <Input
-            placeholder={"Firstname"}
+            placeholder={"Change firstname"}
             value={firstName}
             onChange={(e) => {
               setFirstName(e.target.value);
@@ -82,7 +82,7 @@ const EditProfile = () => {
             disabled={disabledInput}
           />
           <Input
-            placeholder={"Lastname"}
+            placeholder={"Change lastname"}
             value={lastName}
             onChange={(e) => {
               setLastName(e.target.value);
@@ -93,7 +93,7 @@ const EditProfile = () => {
         <div>
           <p>Contact Information</p>
           <Input
-            placeholder={"Phone number"}
+            placeholder={"Change phone number"}
             value={phoneNumber}
             onChange={(e) => {
               setPhoneNumber(e.target.value);
@@ -101,7 +101,7 @@ const EditProfile = () => {
             disabled={disabledInput}
           />
           <Input
-            placeholder={"Email"}
+            placeholder={"Change email"}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -113,7 +113,7 @@ const EditProfile = () => {
           <p>Password</p>
           <Input
             type={"password"}
-            placeholder={"Password"}
+            placeholder={"Change password"}
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -122,7 +122,7 @@ const EditProfile = () => {
           />
           <Input
             type={"password"}
-            placeholder={"Repeat Password"}
+            placeholder={"Repeat changed password"}
             value={repeatPassword}
             onChange={(e) => {
               setRepeatPassword(e.target.value);

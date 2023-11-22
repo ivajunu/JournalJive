@@ -32,21 +32,50 @@ const DeleteProfile = () => {
     setDeletePopUpOpen(false);
   };
 
-  const handleDelete = async () => {
-    const response = await fetch("http://localhost:3000/delete-account", {
+  function Delete() {
+    fetch("http://localhost:3000/deleteaccount", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username, // Rätta till här
-        password: password,
+        userName: username,
+        passWord: password,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error deleting user", error);
+      });
+  }
 
-    const data = await response.json();
-    closeDeletePopUp();
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:3000/deleteaccount", {
+  //       method: "DELETE",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         username: username,
+  //         password: password,
+  //       }),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! Status: ${response.status}`);
+  //     }
+
+  //     const data = await response.json();
+  //     console.log(data);
+  //     closeDeletePopUp();
+  //   } catch (error) {
+  //     console.error("Error deleting user:", error);
+  //   }
+  // };
 
   return (
     <>
@@ -101,10 +130,7 @@ const DeleteProfile = () => {
           />
         </DialogContent>
         <DialogActions>
-          <FormButton
-            label={"Bekräfta radering"}
-            onClick={handleDelete}
-          ></FormButton>
+          <FormButton label={"Bekräfta radering"} onClick={Delete}></FormButton>
           <FormButton label={"Avbryt"} onClick={closeDeletePopUp}></FormButton>
         </DialogActions>
       </Dialog>
