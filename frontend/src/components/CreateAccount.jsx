@@ -101,7 +101,6 @@ function CreateAccount() {
 
   return (
     <RegisterForm>
-      <h1>hej</h1>
       <form>
         <Input
           placeholder={"Username"}
