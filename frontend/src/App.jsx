@@ -92,11 +92,13 @@ function Root() {
               Blog
             </Link>
           </li>
-          <li>
-            <Link style={{ marginRight: "1rem" }} to="/landing-page">
-              My page
-            </Link>
-          </li>
+          {isSignedIn && (
+            <li>
+              <Link style={{ marginRight: "1rem" }} to="/landing-page">
+                My page
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
 
