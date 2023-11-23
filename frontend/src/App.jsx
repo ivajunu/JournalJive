@@ -57,8 +57,12 @@ import {
 } from "react-router-dom";
 
 function Root() {
+  // hämta localStorage
   const [isSignedIn /*setIsSignedIn*/] = useState(false);
+  // setIsSignedIn(localStorage.getItem("loggedIn"));
+  // console.log(isSignedIn);
 
+  // styling
   const navStyle = {
     listStyleType: "none",
     display: "flex",
