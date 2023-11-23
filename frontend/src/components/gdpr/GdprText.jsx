@@ -51,7 +51,10 @@ export default function GdprText() {
           Journal Jive saving your information for purposes listed above. You
           can delete your account at any time and if you decide to delete the
           account we will delete any stored information about you from our
-          database.
+          database. Journal Jive will store the users personal information until
+          the user decide to delete the account, there is no time limit. The
+          user decides when the information about the user will be deleted by
+          deleteing the account.
         </StyledLi>
         <StyledLi>
           This is not a contract. You're not entering any type of contract with

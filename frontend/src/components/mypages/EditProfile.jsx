@@ -2,7 +2,7 @@ import FormButton from "../Forms/FormButton";
 import Input from "../Forms/Input";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const RegisterForm = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const RegisterForm = styled.div`
 `;
 
 const EditProfile = () => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,8 +31,19 @@ const EditProfile = () => {
 
   const [editMode, setEditMode] = useState(true);
   // const UserDisabled = true;
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      const userName = localStorage.getItem("userName");
+
+      if (userName) {
+        setUsername(JSON.parse(userName));
+      }
+    } catch (error) {
+      console.error("Error fetching user from local storage", error);
+    }
+  }, []);
 
   function saveChanges() {
     setDisabledInput(true);
@@ -46,8 +57,6 @@ const EditProfile = () => {
       email: email,
       password: password,
     };
-
-    // console.log("Ändrade värden: ", { editedValues });
 
     fetch("http://localhost:3000/editaccount", {
       method: "PUT",
@@ -78,14 +87,14 @@ const EditProfile = () => {
         <h1>My pages</h1>
       </div>
       <RegisterForm>
-        <Input
-          placeholder={"Username"}
+        <h3> Edit personal Information for: {userName} </h3>
+        {/* <Input
+          placeholder={userName}
           value={userName}
           onChange={(e) => {
-            setUserName(e.target.value);
+            setUsername(e.target.value);
           }}
-          // disabled={UserDisabled}
-        />
+        /> */}
         <div>
           <p>First & Lastname</p>
           <Input

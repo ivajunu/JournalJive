@@ -39,5 +39,3 @@ router.get("/signin", async (_req, res) => {
 });
 
 module.exports = router;
-
-// gör en get sök igenom reslutatet match by i databas
