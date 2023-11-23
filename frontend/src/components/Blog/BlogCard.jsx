@@ -10,23 +10,23 @@ export default function BlogCard() {
   const [blogPost, setBlogPost] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("/blog");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-
-        console.log("Fetched data: ", data);
-
-        setViewBlogs(data);
-        setBlogPost(viewBlogs.blog_title);
-      } catch (error) {
-        console.error("Failed to fetch data: ", error);
-      }
+    function fetchData() {
+      fetch("http://localhost:3000/blog", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setViewBlogs(data);
+          console.log(data);
+          setBlogPost(data[0].blog_title);
+        })
+        .catch((error) => {
+          console.error("Error deleting user", error);
+        });
     }
-
     fetchData();
   }, []);
 
