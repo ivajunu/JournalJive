@@ -36,7 +36,7 @@ const LandingPage = () => {
     justifyContent: "Center",
   };
   const hStyle = {
-    margin: "1rem",
+    margin: "3rem",
     borderBottom: "solid 2px #7f6e55",
   };
 
