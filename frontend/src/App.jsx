@@ -1,6 +1,6 @@
 import "./App.css";
 import image from "./assets/headerPic.png";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -56,12 +56,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-function Root() {
-  // hämta localStorage
-  const [isSignedIn /*setIsSignedIn*/] = useState(false);
-  // setIsSignedIn(localStorage.getItem("loggedIn"));
-  // console.log(isSignedIn);
-
+function Nav() {
   // styling
   const navStyle = {
     listStyleType: "none",
@@ -74,36 +69,49 @@ function Root() {
     width: "100%",
   };
 
+  const [isSignedIn /*setIsSignedIn*/] = useState(false);
+
+  // useEffect(() => {
+  //   const loggedin = localStorage.getItem("loggedIn");
+  //   setIsSignedIn(loggedin === "true");
+  // }, [localStorage.getItem("loggedIn")]);
+
+  // console.log(isSignedIn);
+  return (
+    <nav style={positionNav}>
+      <ul style={navStyle}>
+        <li>
+          <Link style={{ marginRight: "1rem" }} to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          {/* <Link
+            style={{ marginRight: "1rem" }}
+            to={isSignedIn ? "/sign-out" : "/sign-in"}
+          >
+            {isSignedIn ? "Sign out" : "Sign in"}
+          </Link> */}
+        </li>
+        <li>
+          <Link style={{ marginRight: "1rem" }} to="/view-blog">
+            Blog
+          </Link>
+        </li>
+        <li>
+          <Link style={{ marginRight: "1rem" }} to="/landing-page">
+            My page
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+function Root() {
   return (
     <>
-      <nav style={positionNav}>
-        <ul style={navStyle}>
-          <li>
-            <Link style={{ marginRight: "1rem" }} to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ marginRight: "1rem" }}
-              to={isSignedIn ? "sign-out" : "/sign-in"}
-            >
-              {isSignedIn ? "Sign out" : "Sign in"}
-            </Link>
-          </li>
-          <li>
-            <Link style={{ marginRight: "1rem" }} to="/view-blog">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link style={{ marginRight: "1rem" }} to="/landing-page">
-              My page
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
+      <Nav />
       <Link to="/">
         <LazyLoadImage
           alt="header picture for journal jive"
