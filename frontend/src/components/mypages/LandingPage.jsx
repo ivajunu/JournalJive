@@ -17,6 +17,11 @@ const LandingPage = () => {
     }
   }, []);
 
+  const blogPost = {
+    marginBottom: "2rem",
+    display: "flex",
+    justifyContent: "Center",
+  };
   const linkStyle = {
     display: "flex",
     flexDirection: "column",
@@ -30,22 +35,30 @@ const LandingPage = () => {
     display: "flex",
     justifyContent: "Center",
   };
+  const hStyle = {
+    margin: "1rem",
+    borderBottom: "solid 2px #7f6e55",
+  };
 
   return (
     <div>
-      <h1>Welcome back {userName}!</h1>
-      <div style={linkStyle}>
+      <div style={hStyle}>
+        <h1>Welcome back {userName}!</h1>
+      </div>
+      <div style={blogPost}>
         <Link to="/blog" style={links}>
           Create a blog post
+        </Link>
+      </div>
+      <div style={linkStyle}>
+        <Link to="/gdpr-landing" style={links}>
+          GDPR
         </Link>
         <Link to="/edit-profile" style={links}>
           Edit profile
         </Link>
         <Link to="/delete-account" style={links}>
           Delete account
-        </Link>
-        <Link to="/gdpr-landing" style={links}>
-          GDPR
         </Link>
         <div style={logOut}>
           <Link to="/" style={links}>
