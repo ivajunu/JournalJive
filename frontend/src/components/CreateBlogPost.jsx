@@ -20,8 +20,8 @@ const RegisterForm = styled.div`
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
   padding: 1rem;
-  margin: 0.5rem;
-  width: 95%;
+  margin: 1rem;
+  width: 90%;
 `;
 
 function CreateBlogPost() {
@@ -75,11 +75,13 @@ function CreateBlogPost() {
         fetchData();
       })
       .catch((error) => {
-        console.error("Error creating user", error);
+        console.error("Error creating blogpost", error);
       });
   }
 
   // TODO: fix delete so that it deletes the right blogpost
+  // Koppla bloggen med användaren som loggar in.
+  // edit och delete-knapp i cardsen
 
   // function DeleteBlogpost() {
   //   fetch("http://localhost:3000/deleteblogpost", {
@@ -103,10 +105,8 @@ function CreateBlogPost() {
 
   return (
     <>
-      <p>Koppla bloggen med användaren som loggar in.</p>
-      <p>edit och delete-knapp i cardsen</p>
       <RegisterForm>
-        <form>
+        <form style={{ width: "95%" }}>
           <InputTitle
             placeholder={"Title"}
             value={title}
@@ -121,7 +121,7 @@ function CreateBlogPost() {
               setblogPost(e.target.value);
             }}
           />
-          <div style={{ padding: "5px", margin: "1rem" }}>
+          <div style={{ padding: "5px", margin: "0.5rem" }}>
             <FormButton
               type="submit"
               label={"Post"}
@@ -148,12 +148,18 @@ function CreateBlogPost() {
       >
         {/* <BlogCard /> */}
       </div>
-      <div style={{ display: "flex", flexDirection: "column-reverse" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column-reverse",
+          margin: "1rem",
+        }}
+      >
         {viewBlogs
           ? viewBlogs.map((blog, index) => (
               <Card
                 sx={{
-                  width: 400,
+                  width: 350,
                   marginBottom: "2rem",
                   display: "flex",
                   flexDirection: "column",

@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 const StyledInputBlog = styled(TextField)`
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
-  width: 25rem;
+  width: 95%;
+  /* color: #000000; */
 
   label.Mui-focused {
     color: #7f6e55;
@@ -12,6 +13,7 @@ const StyledInputBlog = styled(TextField)`
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
       border-color: #baaa91;
+      /* background-color: #ffffff; */
     }
     & .MuiOutlinedInput-notchedOutline {
       border-color: #baaa91;
@@ -23,8 +25,7 @@ export default function InputBlog(props) {
   const { placeholder, value, onChange, type } = props;
   return (
     <>
-      <div>
-        {/* <StyledInputBlog
+      {/* <StyledInputBlog
           label={placeholder}
           multiline
           // rows={rows}
@@ -33,17 +34,16 @@ export default function InputBlog(props) {
           type={type}
         /> */}
 
-        <StyledInputBlog
-          style={{ marginTop: "1rem" }}
-          label={placeholder}
-          multiline
-          // rows={rows}
-          onChange={onChange}
-          value={value}
-          type={type}
-          rows={18}
-        />
-      </div>
+      <StyledInputBlog
+        style={{ marginTop: "1rem" }}
+        label={placeholder}
+        multiline
+        // rows={rows}
+        onChange={onChange}
+        value={value}
+        type={type}
+        rows={18}
+      />
     </>
   );
 }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledInputTitle = styled(TextField)`
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
-  width: 25rem;
+  width: 95%;
 
   label.Mui-focused {
     color: #7f6e55;
@@ -12,6 +12,7 @@ const StyledInputTitle = styled(TextField)`
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
       border-color: #baaa91;
+      /* background-color: #ffffff; */
     }
     & .MuiOutlinedInput-notchedOutline {
       border-color: #baaa91;
