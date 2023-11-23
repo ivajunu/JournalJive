@@ -1,6 +1,6 @@
 import "./App.css";
 import image from "./assets/headerPic.png";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -32,6 +32,7 @@ const UserTerms = lazyWithPreload(() => import("./components/gdpr/UserTerms"));
 const UserTermsLanding = lazyWithPreload(() =>
   import("./components/gdpr/UserTermsLanding")
 );
+const Signout = lazyWithPreload(() => import("./components/SignOut"));
 
 Home.preload();
 Signin.preload();
@@ -46,6 +47,7 @@ ViewBlog.preload();
 GdprLanding.preload();
 UserTerms.preload();
 UserTermsLanding.preload();
+Signout.preload();
 
 import {
   createHashRouter,
@@ -55,6 +57,8 @@ import {
 } from "react-router-dom";
 
 function Root() {
+  const [isSignedIn /*setIsSignedIn*/] = useState(false);
+
   const navStyle = {
     listStyleType: "none",
     display: "flex",
@@ -76,8 +80,11 @@ function Root() {
             </Link>
           </li>
           <li>
-            <Link style={{ marginRight: "1rem" }} to="/sign-in">
-              Sign in
+            <Link
+              style={{ marginRight: "1rem" }}
+              to={isSignedIn ? "sign-out" : "/sign-in"}
+            >
+              {isSignedIn ? "Sign out" : "Sign in"}
             </Link>
           </li>
           <li>
@@ -85,6 +92,13 @@ function Root() {
               Blog
             </Link>
           </li>
+          {isSignedIn && (
+            <li>
+              <Link style={{ marginRight: "1rem" }} to="/landing-page">
+                My page
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
 
@@ -124,6 +138,14 @@ function App() {
             </Suspense>
           ),
           path: "/sign-in",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <Signout />
+            </Suspense>
+          ),
+          path: "/sign-out",
         },
         {
           element: (
