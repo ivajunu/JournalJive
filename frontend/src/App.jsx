@@ -1,6 +1,6 @@
 import "./App.css";
 import image from "./assets/headerPic.png";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -69,7 +69,7 @@ function Nav() {
     width: "100%",
   };
 
-  const [isSignedIn /*setIsSignedIn*/] = useState(false);
+  // const [ isSignedIn setIsSignedIn] = useState(false);
 
   // useEffect(() => {
   //   const loggedin = localStorage.getItem("loggedIn");

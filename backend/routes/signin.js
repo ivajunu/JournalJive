@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const client = require("../index");
 
+client.connect();
+
+app.use(cors());
+
 router.post("/signin", async (req, res) => {
   try {
     const { username, password } = req.body;
