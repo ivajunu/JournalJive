@@ -2,8 +2,11 @@ import FormButton from "./Forms/FormButton";
 import InputBlog from "./Blog/InputBlog";
 import InputTitle from "./Blog/InputTitle";
 import styled from "styled-components";
-import { useState } from "react";
-import BlogCard from "./Blog/BlogCard";
+import { useEffect, useState } from "react";
+import { CardActionArea, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+// import BlogCard from "./Blog/BlogCard";
 import { useNavigate } from "react-router-dom";
 
 // TODO: set validation for document before posting
@@ -25,10 +28,32 @@ function CreateBlogPost() {
   const [title, setTitle] = useState("");
   const [blogPost, setblogPost] = useState("");
   const navigate = useNavigate();
+  const [viewBlogs, setViewBlogs] = useState([]);
+
+  function fetchData() {
+    fetch("http://localhost:3000/blog", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setViewBlogs(data);
+        setblogPost(data[0].blog_title);
+      })
+      .catch((error) => {
+        console.error("Error deleting user", error);
+      });
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   async function handleBlogValues(e) {
     e.preventDefault();
-    console.log("Click!!!");
 
     const blogvalues = {
       title: title,
@@ -47,11 +72,34 @@ function CreateBlogPost() {
       .then((response) => response.json())
       .then((data) => {
         console.log("data", data);
+        fetchData();
       })
       .catch((error) => {
         console.error("Error creating user", error);
       });
   }
+
+  // TODO: fix delete so that it deletes the right blogpost
+
+  // function DeleteBlogpost() {
+  //   fetch("http://localhost:3000/deleteblogpost", {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       title: blogPost,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       fetchData();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error deleting user", error);
+  //     });
+  // }
 
   return (
     <>
@@ -98,7 +146,58 @@ function CreateBlogPost() {
           marginTop: "2rem",
         }}
       >
-        <BlogCard />
+        {/* <BlogCard /> */}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column-reverse" }}>
+        {viewBlogs
+          ? viewBlogs.map((blog, index) => (
+              <Card
+                sx={{
+                  width: 400,
+                  marginBottom: "2rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  border: "solid 2px #7f6e55",
+                }}
+                key={index}
+              >
+                <CardActionArea sx={{ marginBottom: "1rem" }}>
+                  <CardContent sx={{ marginBottom: "1rem" }}>
+                    <div>
+                      <Typography sx={{ fontWeight: "bold", fontSize: "20px" }}>
+                        {blog.blog_title}
+                      </Typography>
+                      <Typography sx={{ fontSize: "14px" }}>
+                        {blog.blog_text}
+                      </Typography>
+                    </div>
+                  </CardContent>
+                </CardActionArea>
+                {/* <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Button
+                    size="small"
+                    sx={{ fontWeight: "bold", color: "rgb(34, 34, 34)" }}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    size="small"
+                    sx={{ fontWeight: "bold", color: "rgb(34, 34, 34)" }}
+                    onClick={DeleteBlogpost}
+                  >
+                    Delete
+                  </Button> */}
+                {/* </div> */}
+              </Card>
+            ))
+          : null}
       </div>
     </>
   );
