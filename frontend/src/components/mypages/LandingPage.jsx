@@ -1,9 +1,11 @@
 // import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FormButton from "../Forms/FormButton";
 
 const LandingPage = () => {
   const [userName, setUsername] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -16,6 +18,12 @@ const LandingPage = () => {
       console.error("Error fetching user from local storage", error);
     }
   }, []);
+
+  function handlelogout() {
+    localStorage.setItem("loggedIn", JSON.stringify(false));
+    localStorage.setItem("userName", JSON.stringify(""));
+    navigate("/");
+  }
 
   const blogPost = {
     marginBottom: "2rem",
@@ -30,11 +38,11 @@ const LandingPage = () => {
   const links = {
     margin: "0.5rem",
   };
-  const logOut = {
-    marginTop: "2rem",
-    display: "flex",
-    justifyContent: "Center",
-  };
+  // const logOut = {
+  //   marginTop: "2rem",
+  //   display: "flex",
+  //   justifyContent: "Center",
+  // };
   const hStyle = {
     margin: "3rem",
     borderBottom: "solid 2px #7f6e55",
@@ -63,11 +71,13 @@ const LandingPage = () => {
         <Link to="/delete-account" style={links}>
           Delete account
         </Link>
-        <div style={logOut}>
-          <Link to="/" style={links}>
+
+        <FormButton label={"Log out"} onClick={handlelogout} />
+        {/* <div style={logOut}>
+          <Link to="/" style={links} oncli>
             Log out
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

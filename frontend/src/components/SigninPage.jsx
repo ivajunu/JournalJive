@@ -7,9 +7,14 @@ import { useNavigate } from "react-router-dom";
 const SignInPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+  // Först är denna false när ingen loggat in
+  // const [signIn, setSignIn] = useState(false);
+
   const navigate = useNavigate();
   // const [loggedInUser, SetLoggedInUser] = useState([]);
-
+  localStorage.setItem("loggedIn", JSON.stringify(false));
+  // styling
   const containerStyle = {
     display: "flex",
     flexDirection: "column",
@@ -33,13 +38,15 @@ const SignInPage = () => {
       });
 
       const data = await response.json();
-
+      localStorage.setItem("userName", JSON.stringify(userName));
       if (response.status === 200) {
-        localStorage.setItem("userName", JSON.stringify(userName));
         console.log(
           "user från localStorage:",
           localStorage.getItem("userName")
         );
+        // INLOGG
+        localStorage.setItem("loggedIn", JSON.stringify(true));
+        console.log("är inloggad:", localStorage.getItem("loggedIn"));
         // varje gpng jag plockar bort console loggen blir det massa fel
         console.log(data.message);
         navigate("/landing-page");

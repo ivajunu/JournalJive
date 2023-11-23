@@ -82,6 +82,8 @@ function CreateAccount() {
     })
       .then((response) => response.json())
       .then((data) => {
+        localStorage.setItem("loggedIn", JSON.stringify(true));
+        localStorage.setItem("userName", JSON.stringify(userName));
         console.log(data);
         setUserName("");
         setFirstName("");
@@ -90,7 +92,6 @@ function CreateAccount() {
         setEmail("");
         setPassword("");
         setRepeatPassword("");
-
         navigate("/success-createuser");
       })
       .catch((error) => {
