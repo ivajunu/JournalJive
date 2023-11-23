@@ -54,6 +54,9 @@ const LandingPage = () => {
         <Link to="/gdpr-landing" style={links}>
           GDPR
         </Link>
+        <Link to="/userterms-landing" style={links}>
+          Terms and conditions
+        </Link>
         <Link to="/edit-profile" style={links}>
           Edit profile
         </Link>

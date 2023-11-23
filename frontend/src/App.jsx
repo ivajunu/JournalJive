@@ -28,6 +28,10 @@ const SuccessCreate = lazyWithPreload(() =>
 const GdprLanding = lazyWithPreload(() =>
   import("./components/gdpr/GdprLanding")
 );
+const UserTerms = lazyWithPreload(() => import("./components/gdpr/UserTerms"));
+const UserTermsLanding = lazyWithPreload(() =>
+  import("./components/gdpr/UserTermsLanding")
+);
 
 Home.preload();
 Signin.preload();
@@ -40,6 +44,8 @@ LandingPageReg.preload();
 GDPR.preload();
 ViewBlog.preload();
 GdprLanding.preload();
+UserTerms.preload();
+UserTermsLanding.preload();
 
 import {
   createHashRouter,
@@ -198,6 +204,22 @@ function App() {
             </Suspense>
           ),
           path: "/gdpr-landing",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <UserTerms />
+            </Suspense>
+          ),
+          path: "/user-terms",
+        },
+        {
+          element: (
+            <Suspense fallback={<>Loading...</>}>
+              <UserTermsLanding />
+            </Suspense>
+          ),
+          path: "/userterms-landing",
         },
       ],
       element: <Root />,

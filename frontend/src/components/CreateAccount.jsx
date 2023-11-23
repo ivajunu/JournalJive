@@ -160,14 +160,22 @@ function CreateAccount() {
               wordBreak: "break-word",
             }}
           >
-            Click on the button below, (Terms and conditions) to read about how
-            we collect data.
+            Click on the buttons below, (Terms and conditions and GDPR) to read
+            about how we collect data.
           </p>
+          <div style={buttonStyle}>
+            <FormButton
+              label={"GDPR"}
+              onClick={() => {
+                navigate("/gdpr-info");
+              }}
+            ></FormButton>
+          </div>
           <div style={buttonStyle}>
             <FormButton
               label={"Terms and conditions"}
               onClick={() => {
-                navigate("/gdpr-info");
+                navigate("/user-terms");
               }}
             ></FormButton>
           </div>
