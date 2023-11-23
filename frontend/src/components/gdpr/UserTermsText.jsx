@@ -21,7 +21,9 @@ const StyledLi = styled.li`
 const UserTerms = () => {
   return (
     <div>
-      <StyledHeadline>User terms and conditions</StyledHeadline>
+      <StyledHeadline>
+        Our privacy policy, userterms and conditions
+      </StyledHeadline>
       <StyledP>
         Journal Jive provides a platform where users can create a blog, write
         blogs and read other blogs. To be able to create a blog on Journal Jive
@@ -29,6 +31,7 @@ const UserTerms = () => {
         when in connection with creating your account, you chaeck the "I accept
         the terms of use."
       </StyledP>
+
       <StyledP>
         Membership entitles you to a blog account. Your membership and blog
         account are personal. It is also prohibited to exploit other members
