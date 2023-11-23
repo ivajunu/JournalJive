@@ -51,7 +51,7 @@ const LandingPage = () => {
   return (
     <div>
       <div style={hStyle}>
-        <h1>Welcome back {userName}!</h1>
+        <h1>Welcome {userName}!</h1>
       </div>
       <div style={blogPost}>
         <Link to="/blog" style={links}>
