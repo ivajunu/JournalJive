@@ -1,11 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const client = require("../index");
-const cors = require("cors");
-
-client.connect();
-
-app.use(cors());
 
 router.delete("/deleteblogpost", async (req, res) => {
   try {
