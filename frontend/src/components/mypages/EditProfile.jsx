@@ -1,3 +1,5 @@
+// Källa: https://stackoverflow.com/questions/37230555/get-with-query-string-with-fetch-in-react-native
+
 import FormButton from "../Forms/FormButton";
 import Input from "../Forms/Input";
 import { useNavigate } from "react-router-dom";
@@ -28,22 +30,64 @@ const EditProfile = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [disabledInput, setDisabledInput] = useState(true);
+  const [sendUser, setSendUser] = useState("");
 
   const [editMode, setEditMode] = useState(true);
-  // const UserDisabled = true;
+  const [update, setUpdate] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     try {
       const userName = localStorage.getItem("userName");
-
       if (userName) {
         setUsername(JSON.parse(userName));
+        setSendUser(JSON.parse(userName));
       }
     } catch (error) {
       console.error("Error fetching user from local storage", error);
     }
   }, []);
+
+  // useEffect(()=> {
+  //  setSendUser(JSON.parse(localStorage.getItem("userName")));
+  //  console.log(U);
+  // }, [])
+
+  useEffect(() => {
+    function Autofill() {
+      setUpdate(!true);
+      console.log("senduser: ", sendUser);
+      fetch(
+        `http://localhost:3000/editaccount?username=${encodeURIComponent(
+          sendUser
+        )}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Data från autofill: ", data);
+          setFirstName(data[0].person_firstname);
+          setLastName(data[0].person_lastname);
+          setPhoneNumber(data[0].person_phone_number);
+          setEmail(data[0].person_email);
+          setPassword(data[0].person_password);
+          setRepeatPassword(data[0].person_password);
+        })
+        .catch((error) => {
+          console.error("Error editing person info", error);
+        });
+    }
+    Autofill();
+  }, [sendUser, update]);
+
+  // useEffect(() => {
+  //   Autofill();
+  // }, []);
 
   function saveChanges() {
     setDisabledInput(true);
@@ -68,6 +112,7 @@ const EditProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setUpdate(!true);
       })
       .catch((error) => {
         console.error("Error editing person info", error);
