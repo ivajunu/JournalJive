@@ -27,6 +27,10 @@ a {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 
 ul {
   padding: 0;
