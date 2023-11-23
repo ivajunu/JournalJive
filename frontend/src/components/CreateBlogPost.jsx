@@ -29,6 +29,7 @@ function CreateBlogPost() {
   const [blogPost, setblogPost] = useState("");
   const navigate = useNavigate();
   const [viewBlogs, setViewBlogs] = useState([]);
+  const [blogPostTitle, setBlogPostTitle] = useState("");
 
   function fetchData() {
     fetch("http://localhost:3000/blog", {
@@ -41,7 +42,8 @@ function CreateBlogPost() {
       .then((data) => {
         console.log(data);
         setViewBlogs(data);
-        setblogPost(data[0].blog_title);
+        setBlogPostTitle(data[0].blog_title);
+        console.log(blogPostTitle);
       })
       .catch((error) => {
         console.error("Error deleting user", error);
@@ -73,6 +75,8 @@ function CreateBlogPost() {
       .then((data) => {
         console.log("data", data);
         fetchData();
+        setTitle("");
+        setblogPost("");
       })
       .catch((error) => {
         console.error("Error creating blogpost", error);
@@ -90,7 +94,7 @@ function CreateBlogPost() {
   //       "Content-Type": "application/json",
   //     },
   //     body: JSON.stringify({
-  //       title: blogPost,
+  //       title: blogPostTitle,
   //     }),
   //   })
   //     .then((response) => response.json())
