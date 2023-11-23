@@ -24,8 +24,10 @@ export default function GdprText() {
       <h1>GDPR:</h1>
       <StyledHeadline>Being a member of Journal Jive</StyledHeadline>
       <StyledP>
-        We at Journal Jive thrive to be open and honest about our work. The data
-        that we need to collect about you is necessery for many reasons.
+        We at Journal Jive thrive to be open and honest about our work. We value
+        your privacy and strive to protect your personal information in the best
+        possible way. This privacy policy describes how we collect, use, store,
+        and safeguard your personal data.
       </StyledP>
       <StyledHeadline>The How's and Why's:</StyledHeadline>
       <ul>
@@ -33,7 +35,7 @@ export default function GdprText() {
           We need to store and process personal information about you, such as
           firstname, lastname, phonenumber and email. The purpose of such
           processing is to be able to provide, administer, and control your and
-          other members' usage of our platform. That's why we need your first-
+          other members usage of our platform. That's why we need your first-
           and lastname. We need your email and phone number for verification
           purposes. We also need to be ably to contact you if your account has
           been compromised. We at Journal Jive will be sending updates and
