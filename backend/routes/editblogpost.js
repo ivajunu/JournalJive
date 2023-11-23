@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const client = require("../index");
-client.connect();
-
-app.use(cors());
 
 router.put("/editblogpost", async (_req, res) => {
   try {

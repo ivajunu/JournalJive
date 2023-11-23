@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const client = require("../index");
 
-client.connect();
-
-app.use(cors());
-
 router.delete("/deleteaccount", async (req, res) => {
   try {
     const { userName } = req.body;

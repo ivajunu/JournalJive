@@ -3,10 +3,6 @@ const router = express.Router();
 // const app = express();
 const client = require("../index");
 
-client.connect();
-
-app.use(cors());
-
 router.get("/createaccount", async (_req, res) => {
   try {
     const { rows } = await router.client.query("SELECT * FROM person_datas");
