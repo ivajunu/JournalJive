@@ -64,13 +64,21 @@ const DeleteProfile = () => {
           Do you really want to delete your account? This action cannot be
           undone.
         </p>
-        <FormButton label={"Delete"} onClick={openConfirmation}></FormButton>
-        <FormButton
-          label={"Back"}
-          onClick={() => {
-            navigate("/landing-page");
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
           }}
-        ></FormButton>
+        >
+          <FormButton label={"Delete"} onClick={openConfirmation}></FormButton>
+          <FormButton
+            label={"Back"}
+            onClick={() => {
+              navigate("/landing-page");
+            }}
+          ></FormButton>
+        </div>
       </div>
       <Dialog open={popUpOpen} onClose={closeConfirmation}>
         <DialogTitle>
