@@ -30,4 +30,19 @@ router.put("/editaccount", async (req, res) => {
   }
 });
 
+router.get("/editaccount", async (req, res) => {
+  const { username } = req.query;
+  try {
+    const { rows } = await router.client.query(
+      "SELECT * FROM person_datas WHERE person_username = $1",
+      [username]
+    );
+    console.log("Get user info", rows);
+    res.send(rows);
+  } catch (error) {
+    console.error("Error fetching user", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
