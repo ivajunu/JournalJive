@@ -57,17 +57,12 @@ const EditProfile = () => {
     function Autofill() {
       setUpdate(!true);
       console.log("senduser: ", sendUser);
-      fetch(
-        `http://localhost:3000/editaccount?username=${encodeURIComponent(
-          sendUser
-        )}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch(`/editaccount?username=${encodeURIComponent(sendUser)}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
         .then((response) => response.json())
         .then((data) => {
           console.log("Data från autofill: ", data);
