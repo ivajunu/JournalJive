@@ -88,11 +88,6 @@ const LandingPage = () => {
             </Link>
 
             <FormButton label={"Log out"} onClick={handlelogout} />
-            {/* <div style={logOut}>
-          <Link to="/" style={links} oncli>
-            Log out
-          </Link>
-        </div> */}
           </div>
         </div>
       ) : (

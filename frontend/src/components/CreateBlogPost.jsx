@@ -32,7 +32,7 @@ function CreateBlogPost() {
   const [blogPostTitle, setBlogPostTitle] = useState("");
 
   function fetchData() {
-    fetch("http://localhost:3000/blog", {
+    fetch("/blog", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

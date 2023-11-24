@@ -33,7 +33,7 @@ const DeleteProfile = () => {
   };
 
   function Delete() {
-    fetch("http://localhost:3000/deleteaccount", {
+    fetch("/deleteaccount", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

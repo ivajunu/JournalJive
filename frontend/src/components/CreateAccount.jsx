@@ -74,7 +74,7 @@ function CreateAccount() {
 
     console.log("Värden från formuläret: ", { formvalues });
 
-    fetch("http://localhost:3000/createaccount", {
+    fetch("/createaccount", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

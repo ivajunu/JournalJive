@@ -102,7 +102,7 @@ const EditProfile = () => {
       password: password,
     };
 
-    fetch("http://localhost:3000/editaccount", {
+    fetch("/editaccount", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -55,6 +55,11 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": "http://localhost:3000",
+      "/createaccount": "http://localhost:3000",
+      "/deleteaccount": "http://localhost:3000",
+      "/editaccount": "http://localhost:3000/",
+      "/blog": "http://localhost:3000/",
+      "/signin": "http://localhost:3000/",
     },
   },
 });
