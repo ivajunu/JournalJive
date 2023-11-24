@@ -4,6 +4,7 @@ import CheckBox from "./Forms/CheckBox";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // TOTO: set validation for document before posting
 
@@ -16,14 +17,14 @@ const RegisterForm = styled.div`
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(164 157 146 / 0.2);
   padding: 1rem;
-  width: 95%;
+  width: 90%;
   height: 100%;
-  margin: 0.5rem;
+  margin: 0.8rem;
 `;
 
-const buttonStyle = {
-  margin: "1rem",
-};
+// const buttonStyle = {
+//   margin: "1rem",
+// };
 
 function CreateAccount() {
   const navigate = useNavigate();
@@ -153,33 +154,54 @@ function CreateAccount() {
             setRepeatPassword(e.target.value);
           }}
         />
-        <div style={{ padding: "5px" }}>
+        <div style={{ padding: "0.5rem" }}>
           <p
             style={{
+              margin: "0",
               fontWeight: 500,
-              fontSize: "14px",
+              fontSize: "1rem",
               wordBreak: "break-word",
             }}
           >
-            Click on the buttons below, (Terms and conditions and GDPR) to read
-            about how we collect data.
+            Click on the links:
           </p>
-          <div style={buttonStyle}>
-            <FormButton
-              label={"GDPR"}
-              onClick={() => {
-                navigate("/gdpr-info");
-              }}
-            ></FormButton>
-          </div>
-          <div style={buttonStyle}>
-            <FormButton
-              label={"Terms and conditions"}
-              onClick={() => {
-                navigate("/user-terms");
-              }}
-            ></FormButton>
-          </div>
+          <Link
+            to="/gdpr-info"
+            style={{
+              fontWeight: "600",
+            }}
+          >
+            GDPR
+          </Link>
+
+          <p
+            style={{
+              margin: "0",
+              fontWeight: 500,
+              fontSize: "1rem",
+              wordBreak: "break-word",
+            }}
+          >
+            and
+          </p>
+          <Link
+            to="/user-terms"
+            style={{
+              fontWeight: "600",
+            }}
+          >
+            Terms & conditions
+          </Link>
+          <p
+            style={{
+              margin: "0",
+              fontWeight: 500,
+              fontSize: "1rem",
+              wordBreak: "break-word",
+            }}
+          >
+            to read about how we collect data.
+          </p>
           <CheckBox
             label={"I accept the terms and conditions"}
             value={accept}

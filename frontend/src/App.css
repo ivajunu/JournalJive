@@ -45,6 +45,10 @@ a {
   /* padding: 0.5rem; */
 }
 
+a {
+  color: rgb(58, 30, 30);
+}
+
 /* li,
 a:hover {
   background-color: #202325;
