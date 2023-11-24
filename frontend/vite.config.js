@@ -60,7 +60,6 @@ export default defineConfig({
       "/editaccount": "http://localhost:3000/",
       "/blog": "http://localhost:3000/",
       "/signin": "http://localhost:3000/",
-      "/users": "http://localhost:3000/",
     },
   },
 });
