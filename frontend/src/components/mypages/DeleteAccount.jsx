@@ -6,6 +6,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import TextField from "@mui/material/TextField";
+import Button from "../Forms/Button";
 
 const DeleteProfile = () => {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ const DeleteProfile = () => {
           All your blog posts will disappear! Are you absolutely sure?
         </DialogTitle>
         <DialogActions>
-          <FormButton label={"Yes"} onClick={openDeletePopUp}></FormButton>
+          <Button label={"Yes"} onClick={openDeletePopUp}></Button>
           <FormButton label={"No"} onClick={closeConfirmation}></FormButton>
         </DialogActions>
       </Dialog>
